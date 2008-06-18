@@ -1,0 +1,292 @@
+%%% Additional article styles for memoir class
+%%%
+
+%%%
+%%% article-1 
+%%%
+   \makechapterstyle{article-1}{
+     \setsecheadstyle{\Large\scshape} 
+     \setsubsecheadstyle{\normalsize\itshape} 
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\scshape} 
+    \renewcommand{\cftchapterpresnum}{\scshape} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    %\settocdepth{chapter}
+%     \maxsecnumdepth{section} 
+%     \setsecnumdepth{section}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % set name of bibliography to 'references'
+    \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
+
+    \pretitle{\newline\centering \LARGE\scshape \MakeLowercase }
+    \posttitle{\par\vskip 1em}
+    \predate{\footnotesize \centering}
+    \postdate{\par\vskip 1em}
+    
+    % 'abstract' title, bigger skip from title
+    \renewcommand{\abstractname}{}
+    \abstractrunin
+   }
+     
+%%%
+%%% article-2 
+%%%
+
+% Make the style for Chapters and sections
+   \makechapterstyle{article-2}{
+    \setsecheadstyle{\Large\scshape\MakeLowercase} 
+    \setsubsecheadstyle{\normalsize\itshape} 
+	\setaftersubsubsecskip{-1em}
+    \setsubsubsecheadstyle{\small\bfseries}
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\scshape} 
+    \renewcommand{\cftchapterpresnum}{\scshape} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    %\settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % set name of bibliography to 'references'
+    \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
+
+    % Title flush left
+    \pretitle{\flushleft\LARGE \itshape}
+    \posttitle{\par\vskip 0.5em}
+    \preauthor{\flushleft  \large \lineskip 1em}
+    \postauthor{\par\lineskip 1em}
+    \predate{\flushleft\footnotesize\vspace{0.65em}}
+    \postdate{\par\vskip 2em}
+    
+    % 'abstract' title, bigger skip from title
+    \renewcommand{\abstractname}{\normalfont\scriptsize\emph{Abstract:}}
+	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    \abstractrunin
+
+   }
+
+%%%
+%%% article-3 
+%%%
+
+% Make the style for Chapters and sections
+   \makechapterstyle{article-3}{
+     \renewcommand\thesection{\arabic{section}} 
+     \setsecheadstyle{\Large\sffamily} 
+     \setsubsecheadstyle{\large\sffamily} 
+     \setsubsubsecheadstyle{\normalsize\sffamily\itshape} 
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\sffamily} 
+    \renewcommand{\cftchapterpresnum}{\sffamily} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    \settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % set name of bibliography to 'references'
+    \renewcommand{\bibname}{\mdseries\Large\sffamily\MakeLowercase References}
+
+    % Title 
+    \pretitle{\LARGE\sffamily}
+    \posttitle{\par\vskip 1em}
+    \predate{\sffamily\footnotesize}
+    \preauthor{\flushleft\Large\sffamily \lineskip 1em}
+    \postauthor{\par\lineskip 1em}
+    \predate{\sffamily\footnotesize}
+    \postdate{\par\vskip 1em}
+
+    % \pretitle{\LARGE \sffamily}
+    % \posttitle{\par\vskip 0.5em}
+    % \preauthor{\large \sffamily \lineskip 1em}
+    % \postauthor{\par\lineskip 1em}
+    % \predate{\sffamily\footnotesize\vspace{0.65em}}
+    % \postdate{\par\vskip 2em}
+    
+    % 'abstract' title, bigger skip from title
+    \renewcommand{\abstractname}{\normalfont\emph{Abstract:}}
+    \abstractrunin
+
+   }
+
+
+%%%
+%%% Custom styles for headers and footers
+%%%
+   
+%%%
+%%% Basic 
+%%%
+\makepagestyle{kjh}
+%\makeevenfoot{kjh}{\thepage}{}{}
+%\makeoddfoot{kjh}{}{}{\thepage}
+%\makeheadrule{kjh}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjh}{\@kjhmarks}
+\makepsmarks{kjh}{}
+\makeevenhead{kjh}{}{}{\scshape\thepage}
+\makeoddhead{kjh}{}{}{\scshape\thepage}
+
+
+  
+%%%
+%%% RCS in footer 
+%%%
+
+% Make the style for RCS revision control headers and footers
+\makepagestyle{kjhrcs}
+% \makeheadrule{kjhrcs}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhrcsmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhrcs}{\@kjhrcsmarks}
+%\makeevenhead{kjhrcs}{\footnotesize\scshape\leftmark}{}{\scshape\thepage}
+%\makeoddhead{kjhrcs}{}{}{\footnotesize\rightmark\normalsize\ \ \scshape\thepage}
+\makeevenfoot{kjhrcs}{\texttt{\footnotesize\rcsInfoFile}}{\scshape\thepage}{\footnotesize \emph{Rev} \texttt{\rcsInfoRevision \  \rcsInfoDate}}
+\makeoddfoot{kjhrcs}{\texttt{\footnotesize\rcsInfoFile}}{\scshape\thepage}{\footnotesize \emph{Rev} \texttt{\rcsInfoRevision \ \rcsInfoDate}}
+
+
+
+%%%
+%%% Mercurial rev info in footers 
+%%%
+
+% Make the style for hg revision control headers and footers
+\makepagestyle{kjhhg}
+% \makeheadrule{kjhhg}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhhgmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhhg}{\@kjhhgmarks}
+%\makeevenhead{kjhhg}{\footnotesize\scshape\leftmark}{}{\scshape\thepage}
+%\makeoddhead{kjhhg}{}{}{\footnotesize\rightmark\normalsize\ \ \scshape\thepage}
+\makeevenfoot{kjhhg}{\texttt{\footnotesize \hgkw{Filename}}}{\scshape\thepage}{\texttt{\footnotesize Rev \hgkw{LastChangedRevision} on \hgfilemonth\ \hgfileday, \hgfileyear}}
+\makeoddfoot{kjhhg}{\texttt{\footnotesize \hgkw{Filename}}}{\scshape\thepage}{\texttt{\footnotesize Rev \hgkw{LastChangedRevision} on \hgfilemonth\ \hgfileday, \hgfileyear}}
+
+
+
+%%%
+%%% Git info in footers; requires vc package 
+%%%
+
+% Make the style for vc-git revision control headers and footers
+\makepagestyle{kjhgit}
+% \makeheadrule{kjhgit}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhgitmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhgit}{\@kjhgitmarks}
+%\makeevenhead{kjhgit}{\footnotesize\scshape\leftmark}{}{\scshape\thepage}
+%\makeoddhead{kjhgit}{}{}{\footnotesize\rightmark\normalsize\ \ \scshape\thepage}
+\makeevenfoot{kjhgit}{}{\scshape\thepage}{\texttt{\footnotesize Rev \VCRevision on \VCDateTEX}}
+\makeoddfoot{kjhgit}{}{\scshape\thepage}{\texttt{\footnotesize Rev \VCRevision on \VCDateTEX}}            
+
+%%% 
+%%% Custom appendix 
+%%%
+
+% Make the style for headers and footers in the Appendix
+\makepagestyle{kjhappendix}
+%\makeevenfoot{kjh}{\thepage}{}{}
+%\makeoddfoot{kjh}{}{}{\thepage}
+\makeheadrule{kjhapp}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhappmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhappendix}{\@kjhappmarks}
+\makeevenhead{kjhappendix}{\footnotesize\scshape Appendix}{}{\scshape\thepage}
+\makeoddhead{kjhappendix}{}{}{\footnotesize Data and Methods for \rightmark\normalsize\ \ \scshape\thepage}
+
+%% Create a command to make a note at the top of the first page describing the
+%% publication status of the paper. 
+\newcommand{\published}[1]{% 
+   \gdef\puB{#1}} 
+   \newcommand{\puB}{} 
+   \renewcommand{\maketitlehooka}{% 
+       \par\noindent\footnotesize \puB} 
+
+\endinput
+

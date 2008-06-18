@@ -1,0 +1,85 @@
+%%% listings-sweave.sty
+%%% Some ad-hoc custom commands for typesetting R and (especially) Sweave code nicely. 
+%%% Requires listings.sty from listings package
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{listings-sweave}{}
+\RequirePackage{fancyvrb}
+
+% font
+% \newcommand*{\displayverbfont}{%
+%   \ttfamily\fontsize{8}{10}\selectfont}
+
+% inline environment for quoting
+\DefineVerbatimEnvironment{Sinputcolor}{Verbatim}{fillcolor=\color{LightGoldenrodYellow}}
+
+
+% general listings options
+\lstset{%
+  aboveskip=0in,
+  belowskip=0in,
+  basicstyle=\small\ttfamily,
+  commentstyle=\itshape\color{ForestGreen},
+  keywordstyle=\color{DarkSlateBlue},
+  emphstyle=\color{DarkOrange},
+% emphstyle=\spotcolor,
+  numberstyle=\tiny\defaultcolor,
+  numbersep=6pt,
+  basewidth=0.3em,
+  fontadjust=true,
+  flexiblecolumns=true,
+  keepspaces=false,
+  showspaces=false,
+  lineskip=-0.5pt
+  }
+
+% style for R chunks of sweave code
+\lstdefinestyle{sweave-r}{%
+  morecomment=[s][\color{Red}]{<<}{>>=},
+  morecomment=[l][\color{Red}]{@},
+  backgroundcolor=\color{LightGoldenrodYellow},
+  frame=rl
+ % aboveskip=0.1in,
+ % belowskip=0.1in
+ }
+
+%% style for inline chunks of R code in latex (ie, \Sexpr statements)
+%% try again
+\makeatletter
+\newcommand\HL{%
+  \gdef\lst@alloverstyle##1{%
+    \fboxrule=0pt
+    \fboxsep=0pt
+    \colorbox{LightGoldenrodYellow}{\strut##1}%
+  }%Here was the line break that caused the trouble%
+}
+
+\newcommand\HLoff{%
+  \xdef\lst@alloverstyle##1{##1}%
+}
+\makeatother
+
+
+% style for latex chunks of sweave code
+\lstdefinestyle{sweave-tex}{%
+  frame=rl, 
+  escapechar=\#,
+  morekeywords={Sexpr,citep,citet,citeyear,cite,citeyearpar}
+ % aboveskip=0.1in,
+ % belowskip=0.1in
+}
+
+% dummy style for top of listing frame
+\lstdefinestyle{sweave-top}{%
+  frame=trl,
+  belowskip=-0.045in
+ % aboveskip=0.1in,
+ % belowskip=0.1in
+}
+
+% dummy style for bottom of listing frame
+\lstdefinestyle{sweave-bottom}{%
+  frame=brl
+ % aboveskip=0.1in,
+ % belowskip=0.1in
+}
+
