@@ -1,6 +1,12 @@
 %%% Additional article styles for memoir class
 %%%
 
+
+%% blank footnote
+% Use \symbolfootnote[0]{Footnote text} for a blank footnote.
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
 %%%
 %%% article-1 
 %%%
