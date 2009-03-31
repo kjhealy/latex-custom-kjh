@@ -59,6 +59,16 @@
 \makeatother
 
 
+% style for boxes of r code (no sweave)
+\lstdefinestyle{rcodebox}{%
+  frame=tbrl, 
+  escapechar=\#,
+  backgroundcolor=\color{LightGoldenrodYellow},
+  morekeywords={Sexpr,citep,citet,citeyear,cite,citeyearpar}
+}
+
+
+
 % style for latex chunks of sweave code
 \lstdefinestyle{sweave-tex}{%
   frame=rl, 
