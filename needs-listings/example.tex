@@ -1,0 +1,172 @@
+%% Sample file showing how to use the listings files.
+
+\documentclass[11pt]{article}     
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{listings-sweave-xelatex}
+\usepackage[svgnames]{xcolor}
+\usepackage{soul}
+\sethlcolor{LightGoldenrodYellow}
+
+\usepackage[dvipdfm,colorlinks=true,urlcolor=FireBrick,linkcolor=FireBrick,bookmarks=false,citecolor=Black]{hyperref}
+
+\begin{document}
+%\frontmatter
+\title{R/Sweave Code Highlighting Examples}
+
+\author{Kieran Healy}
+\date{{\scriptsize{\texttt{\href{mailto:kjhealy@soc.duke.edu}{kjhealy@soc.duke.edu}}}}} 
+
+\maketitle
+
+The files in this folder describe an Sweave style for the Listings package. The nesting in the \texttt{.tex} file might looks a little confusing at first because of the way we have to switch back and forth between Sweave and LaTeX. But if you're just typesetting R it's much easier. See the documentation for the Listings package for much, much more detail.
+
+\section*{Some R}
+
+\begin{figure}[h!] % h! forces the figure to appear right here. 
+% This just does the box. There's certainly a more elegant way to do this.
+% \begin{lstlisting}[style=sweave-top]
+
+% \end{lstlisting} 
+\begin{lstlisting}[language=R,numbers=none,style=rcodebox] 
+
+turkey.fun <- function(x){
+ out<- log(x)*1.65
+ out
+ }
+
+x.ax <- seq(10,35,by=0.01)
+hours <- turkey.fun(x.ax)
+data<-cbind(x.ax,hours)
+colnames(data) <- c("Weight","Hours")
+data <- data.frame(data) 
+\end{lstlisting}
+% \begin{lstlisting}[style=sweave-bottom]
+
+% \end{lstlisting} 
+ \caption{A chunk of R code.}
+\label{fig:rchunk}
+\end{figure}
+
+Here is some R as rendered by the Listings package and wrapped in a Figure environment. Change the style options by editing the \texttt{rcodebox} style definition in  \texttt{listings-sweave-xelatex.sty} file or defining your own. The Listings manual has the details.
+
+\section*{An Sweave Example} % (fold)
+\label{sec:an_sweave_example}
+Here we show the code listing for a longer Sweave example. The \texttt{lstlisting} statements flip back and forth between sweave-r and sweave-tex styles. 
+ 
+\begin{figure}[h!]
+\begin{lstlisting}[style=sweave-top]
+
+\end{lstlisting} 
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex]   
+\subsection{Some exploratory analysis}
+\label{sec:exploratory}
+In this section we do some exploratory analysis of the data. 
+We begin by reading in the data file:
+\end{lstlisting}
+\begin{lstlisting}[language=R,numbers=none,style=sweave-r] 
+<<load-data, echo=true>>=
+# load the data. 
+my.data <- read.csv("data/sampledata.csv",header=TRUE)
+
+# OLS model
+out <- lm(y ~ x1 + x2,data=my.data)
+
+summary(out)
+
+# ... More R code would follow until the end delimiter:
+
+@ 
+\end{lstlisting}
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex] 
+% now we are back to normal latex 
+This concludes the exploratory analysis. 
+\end{lstlisting} 
+\begin{lstlisting}[style=sweave-bottom]
+
+\end{lstlisting}
+  \caption{A chunk of Sweave code in a LaTeX document.}
+\label{fig:codechunk}
+\end{figure}
+
+One thing to notice in source file for the next example (below) is that we use an escaped character to activate a command, defined in \texttt{listings-sweave.sty}, which allows you to highlight Sweave or R expressions inline. 
+
+\begin{figure}
+\begin{lstlisting}[style=sweave-top]
+
+\end{lstlisting} 
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex]   
+\subsection{Appendix: An Sweave Example}
+\label{sec:append-sweave-exampl}
+\end{lstlisting}
+\begin{lstlisting}[language=R,numbers=none,style=sweave-r] 
+<<prelim, echo=false,results=hide>>=
+# load required libraries and set some options.
+options(device="pdf")
+library(lattice)
+library(xtable)
+data(cats, package="MASS")
+@ 
+\end{lstlisting}
+
+%% Note the use of escapechar and the \HL / \HLoff commands (defined in
+%% listings-sweave.sty), to allow me to highlight \Sexpr expressions inline. 
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex] 
+Consider the \texttt{cats} regression example. The data contains
+measurements of heart and body weight of
+#\HL#\Sexpr{nrow(cats)}#\HLoff# cats (\Sexpr{sum(cats$Sex=="F")}
+female, #\HL#\Sexpr{sum(cats$Sex=="M")}#\HLoff# male). A linear
+regression model of heart weight by bodyweight and sex can be fitted
+in R using the command
+\end{lstlisting} 
+\begin{lstlisting}[language=R,numbers=none,style=sweave-r]
+<<ols.model>>= 
+# OLS regression model 
+lm1 <- lm(Hwt~Bwt*Sex,data=cats) 
+@
+\end{lstlisting}
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex]
+Tests for significance of the coefficients are shown in
+Table~\ref{tab:coef}, a scatter plot including the regression lines 
+is shown in Figure~\ref{fig:cats}.
+\end{lstlisting}
+
+\begin{lstlisting}[language=R,numbers=none,style=sweave-r]
+<<summary.table,results=tex,echo=FALSE>>= 
+# make a table summarizing the results 
+xtable(lm1, caption="Linear regression model for cats
+  data.", label="tab:coef") 
+@
+\end{lstlisting}
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex]
+In this example, the code chunks that produce Table \ref{tab:coef} 
+and Figure \ref{fig:cats} are replaced by their output when the 
+final document is produced.
+
+\begin{figure} \centering
+\end{lstlisting}
+\begin{lstlisting}[language=R,numbers=none,style=sweave-r]
+<<ols.figure,fig=TRUE,echo=FALSE>>= 
+# produce a plot of the regression
+# lines by sex 
+print(xyplot(Hwt~Bwt|Sex, data=cats,type=c("p","r"))) 
+@
+\end{lstlisting}
+\begin{lstlisting}[language={[latex]tex},numbers=none,style=sweave-tex]
+  \caption{The cats data from package MASS.}
+  \label{fig:cats}
+\end{figure}
+ 
+The code used to produce the data analysis shown here is presented in
+Figure \ref{fig:code}.
+\end{lstlisting}
+\begin{lstlisting}[style=sweave-bottom]
+
+\end{lstlisting}
+  \caption{Some Sweave code. The text is a mixture of LaTeX markup and
+chunks of R code (shown here in blocks with yellow background).}
+\label{fig:code}
+\end{figure}
+ 
+
+\end{document}
