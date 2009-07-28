@@ -145,6 +145,60 @@
     \renewcommand{\abstractname}{\normalfont\emph{Abstract:}}
     \abstractrunin
 
+   }     
+
+%%%
+%%% article-4 (AJS) 
+%%%
+
+% Make the style for Chapters and sections
+   \makechapterstyle{article-4}{
+     \renewcommand\thesection{\arabic{section}} 
+     \setsecheadstyle{\Large\sffamily} 
+     \setsubsecheadstyle{\large\sffamily} 
+     \setsubsubsecheadstyle{\normalsize\sffamily} 
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\sffamily} 
+    \renewcommand{\cftchapterpresnum}{\sffamily} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    \settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+
+    % set name of bibliography to 'references'
+    \renewcommand{\bibname}{\mdseries\Large\sffamily\MakeLowercase References}
+
+    % Title 
+    \pretitle{\LARGE\sffamily}
+    \posttitle{\par\vskip 1em}
+    \predate{\sffamily\footnotesize}
+    \preauthor{\flushleft\Large\sffamily \lineskip 1em}
+    \postauthor{\par\lineskip 1em}
+    \predate{\sffamily\footnotesize}
+    \postdate{\par\vskip 1em}
+
+    % \pretitle{\LARGE \sffamily}
+    % \posttitle{\par\vskip 0.5em}
+    % \preauthor{\large \sffamily \lineskip 1em}
+    % \postauthor{\par\lineskip 1em}
+    % \predate{\sffamily\footnotesize\vspace{0.65em}}
+    % \postdate{\par\vskip 2em}
+
+    % 'abstract' title, bigger skip from title
+    \renewcommand{\abstractname}{\normalfont\emph{Abstract:}}
+    \abstractrunin
+
    }
 
 
