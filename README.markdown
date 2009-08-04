@@ -8,5 +8,5 @@ format:         complete
 
 # Summary #
 
-Some simple configuration files I use to typeset my papers. At present, includes some page layouts for the Memoir class and a style file for typesetting Sweave output using the Listings package.
+Some simple configuration files I use to typeset my papers. At present, includes some page layouts for the Memoir class, a biblatex format file for AJS-style citations (this is not finished yet), and a style file for typesetting Sweave output using the Listings package.
 
