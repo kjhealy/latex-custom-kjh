@@ -1,0 +1,93 @@
+% $Id: authoryear-comp.bbx,v 0.8 2008/10/02 17:33:27 lehman beta $
+
+\ProvidesFile{authoryear-comp-ajs.bbx}
+[\blx@bbxid $Id: authoryear-comp-ajs.bbx,v 0.8 2008/10/02 17:33:27 lehman beta $]
+
+\RequireBibliographyStyle{authoryear}
+
+\ExecuteBibliographyOptions{labelyear,sorting=nyt,pagetracker}
+
+%% remove "In:" from journal and ed volumes.
+\renewbibmacro*{in:}{%
+  \bibstring{}}
+
+%% bibmacro for "Pp xx-xx in ..." for incollection entries
+\newbibmacro*{inc:}{%
+  \bibstring{in}
+  \setunit{\space}}
+
+\renewbibmacro*{author}{%
+  \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}
+    {\ifthenelse{\iffieldequals{fullhash}{\bbx@lasthash}\AND
+                 \NOT\iffirstonpage}
+       {\bibnamedash}
+       {\savefield{fullhash}{\bbx@lasthash}%
+        \printnames{author}%
+	\iffieldundef{authortype}
+	  {\setunit{\addperiod\space}}
+	  {\setunit{\addcomma\space}}}%
+     \iffieldundef{authortype}
+       {}
+       {\usebibmacro{authorstrg}%
+	\setunit{\addperiod}}}%
+    {\global\undef\bbx@lasthash
+     \usebibmacro{labeltitle}%
+     \setunit*{\addperiod}}%
+  \usebibmacro{year+labelyear}}
+ 
+\renewbibmacro*{year+labelyear}{%
+  \iffieldundef{year}
+    {}
+    {%
+       \printfield{year}%
+       \printfield{labelyear}}}
+
+
+%% Redefine Incollection
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock 
+  \usebibmacro{chapter+pages}%
+  \newunit
+  \usebibmacro{inc:}%
+  \usebibmacro{maintitle+booktitle}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit
+  \iffieldundef{maintitle}
+    {\printfield{volume}%
+     \printfield{part}}
+    {}%
+  \newunit
+  \printfield{volumes}%
+  \newunit\newblock
+  \usebibmacro{series+number}%
+  \newunit\newblock
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+year}%
+  \newunit\newblock
+  \printfield{isbn}%
+  \newunit\newblock
+  \printfield{doi}%
+  \newunit\newblock
+  \usebibmacro{eprint}
+  \newunit\newblock
+  \usebibmacro{url+urldate}%
+  \newunit\newblock
+  \printfield{addendum}%
+  \newunit\newblock
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}}
+
+\endinput
