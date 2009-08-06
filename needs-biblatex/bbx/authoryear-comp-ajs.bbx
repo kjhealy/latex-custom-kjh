@@ -11,10 +11,18 @@
 \renewbibmacro*{in:}{%
   \bibstring{}}
 
-%% bibmacro for "Pp xx-xx in ..." for incollection entries
+%% bibmacro for " ... in ..." for incollection entries
 \newbibmacro*{inc:}{%
   \bibstring{in}
-  \setunit{\space}}
+  \setunit{\space}}   
+ 
+%% bibmacro for Pp ... incollection
+\newbibmacro*{incchapter+pages}{%
+  \printfield{chapter}%
+  \setunit{\addperiod\addspace\bibsentence}%
+  \printfield{pages}%
+  \newunit}
+
 
 \renewbibmacro*{author}{%
   \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}
@@ -50,16 +58,16 @@
   \usebibmacro{author}%
   \setunit{\labelnamepunct}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\addperiod}
   \printlist{language}%
-  \newunit\newblock
+  \setunit{\addperiod}\newblock
   \usebibmacro{byauthor}%
   \newunit\newblock 
-  \usebibmacro{chapter+pages}%
-  \newunit
+  \usebibmacro{incchapter+pages}%
+  \setunit{\addspace}
   \usebibmacro{inc:}%
   \usebibmacro{maintitle+booktitle}%
-  \newunit\newblock
+  \setunit{\addcomma\addspace}\newblock
   \usebibmacro{byeditor+others}%
   \newunit\newblock
   \printfield{edition}%
