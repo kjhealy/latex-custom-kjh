@@ -7,6 +7,9 @@
 
 \ExecuteBibliographyOptions{labelyear,sorting=nyt,pagetracker}
 
+%% Language mapping to handle AJS style for Editors, edited by etc in bibliography
+\DeclareLanguageMapping{american}{american-ajs} 
+
 %% remove "In:" from journal and ed volumes.
 \renewbibmacro*{in:}{%
   \bibstring{}}
