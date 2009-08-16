@@ -27,6 +27,7 @@
   \newunit}
 
 
+%% Author field needs period before year.
 \renewbibmacro*{author}{%
   \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}
     {\ifthenelse{\iffieldequals{fullhash}{\bbx@lasthash}\AND
@@ -65,9 +66,16 @@
   \printlist{language}%
   \setunit{\addperiod}\newblock
   \usebibmacro{byauthor}%
+<<<<<<< HEAD
   \newunit\newblock 
   \usebibmacro{incchapter+pages}%
   \setunit{\addspace}
+=======
+  \newunit\newblock
+  \setunit{\addperiod\space}   
+  \usebibmacro{chapter+pages}%
+  \newunit
+>>>>>>> 77a91e3898f0f844382f222dfdf5e0c0953db27d
   \usebibmacro{inc:}%
   \usebibmacro{maintitle+booktitle}%
   \setunit{\addcomma\addspace}\newblock
