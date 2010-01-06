@@ -52,7 +52,7 @@
 
 % Make the style for Chapters and sections
    \makechapterstyle{article-2}{
-    \setsecheadstyle{\Large\scshape\MakeLowercase} 
+    \setsecheadstyle{\Large\sffamily} 
     \setsubsecheadstyle{\normalsize\itshape} 
 	\setaftersubsubsecskip{-1em}
     \setsubsubsecheadstyle{\small\bfseries}
@@ -79,11 +79,11 @@
     \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
 
     % Title flush left
-    \pretitle{\flushleft\LARGE \itshape}
+    \pretitle{\flushleft\LARGE\sffamily}
     \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft  \large \lineskip 1em}
-    \postauthor{\par\lineskip 1em}
-    \predate{\flushleft\footnotesize\vspace{0.65em}}
+    \preauthor{\flushleft\sffamily  \Large \vspace{0.5em}}
+    \postauthor{}
+    \predate{\sffamily\flushleft\footnotesize\vspace{0.9em}}
     \postdate{\par\vskip 2em}
     
     % 'abstract' title, bigger skip from title
