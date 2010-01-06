@@ -42,54 +42,52 @@
     {%
        \printfield{year}%
        \printfield{labelyear}}}
-
-
+	
 %% Redefine Incollection
-\DeclareBibliographyDriver{incollection}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author}%
-  \setunit{\labelnamepunct}\newblock
-  \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
-  \setunit{\addperiod\space}   
-  \usebibmacro{chapter+pages}%
-  \newunit
-  \usebibmacro{inc:}%
-  \usebibmacro{maintitle+booktitle}%
-  \newunit\newblock
-  \usebibmacro{byeditor+others}%
-  \newunit\newblock
-  \printfield{edition}%
-  \newunit
-  \iffieldundef{maintitle}
-    {\printfield{volume}%
-     \printfield{part}}
-    {}%
-  \newunit
-  \printfield{volumes}%
-  \newunit\newblock
-  \usebibmacro{series+number}%
-  \newunit\newblock
-  \printfield{note}%
-  \newunit\newblock
-  \usebibmacro{publisher+location+year}%
-  \newunit\newblock
-  \printfield{isbn}%
-  \newunit\newblock
-  \printfield{doi}%
-  \newunit\newblock
-  \usebibmacro{eprint}
-  \newunit\newblock
-  \usebibmacro{url+urldate}%
-  \newunit\newblock
-  \printfield{addendum}%
-  \newunit\newblock
-  \usebibmacro{pageref}%
-  \usebibmacro{finentry}}
+% \DeclareBibliographyDriver{incollection}{%
+%   \usebibmacro{bibindex}%
+%   \usebibmacro{begentry}%
+%   \usebibmacro{author}%
+%   \newblock
+%   \usebibmacro{title}%
+%   \newunit
+%   \printlist{language}%
+%   \newunit\newblock
+%   \usebibmacro{byauthor}%
+%   \newunit\newblock
+%   \usebibmacro{chapter+pages}%
+%   \newunit
+%   \usebibmacro{inc:}%
+%   \usebibmacro{maintitle+booktitle}%
+%   \newunit\newblock
+%   \usebibmacro{byeditor+others}%
+%   \newunit\newblock
+%   \printfield{edition}%
+%   \newunit
+%   \iffieldundef{maintitle}
+%     {\printfield{volume}%
+%      \printfield{part}}
+%     {}%
+%   \newunit
+%   \printfield{volumes}%
+%   \newunit\newblock
+%   \usebibmacro{series+number}%
+%   \newunit\newblock
+%   \printfield{note}%
+%   \newunit\newblock
+%   \usebibmacro{publisher+location+year}%
+%   \newunit\newblock
+%   \printfield{isbn}%
+%   \newunit\newblock
+%   \printfield{doi}%
+%   \newunit\newblock
+%   \usebibmacro{eprint}
+%   \newunit\newblock
+%   \usebibmacro{url+urldate}%
+%   \newunit\newblock
+%   \printfield{addendum}%
+%   \newunit\newblock
+%   \usebibmacro{pageref}%
+%   \usebibmacro{finentry}}           
 
 \endinput
