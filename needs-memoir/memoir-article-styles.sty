@@ -9,6 +9,45 @@
 \def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
 
 %%%
+%%% memo-comments
+%%%
+
+% Make the style for Chapters and sections
+   \makechapterstyle{memo-comments}{
+     \renewcommand\thesection{\arabic{section}} 
+     \setsecheadstyle{\Large\sffamily} 
+     \setsubsecheadstyle{\large\sffamily} 
+     \setsubsubsecheadstyle{\normalsize\sffamily\itshape} 
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\sffamily} 
+    \renewcommand{\cftchapterpresnum}{\sffamily} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    \settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % Title 
+    \pretitle{\LARGE\sffamily}
+    \posttitle{}
+    \predate{\sffamily\footnotesize}
+    \preauthor{\flushleft\Large\sffamily}
+    \postauthor{}
+    \predate{\flushleft\smallskip\sffamily\footnotesize}
+    \postdate{}
+   }
+
+%%%
 %%% article-1 
 %%%
    \makechapterstyle{article-1}{
