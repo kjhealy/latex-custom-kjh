@@ -1,0 +1,91 @@
+%
+%  Article template for use with http://kjhealy.github.com/latex-custom-kjh
+%
+% 
+%
+
+
+\documentclass[11pt,article,oneside]{memoir}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Script-based version control (needs vc package)
+\input{vc}
+
+\usepackage{graphicx,url}
+\usepackage{rotating} 
+\usepackage{memoir-article-styles} % in latex-custom-kjh/needs-memoir
+
+%% Choose font system
+\usepackage{fontspec}
+\usepackage{xunicode} 
+
+% Biblatex
+\usepackage[american]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[style=authoryear-comp-ajs,abbreviate=true]{biblatex}  % in latex-custom-kjh/needs-biblatex      
+\bibliography{socbib}  % http://kjhealy.github.com/socbibs/
+
+%% Links
+\usepackage[usenames,dvipsnames]{color}                     
+\usepackage[xetex, 
+	colorlinks=true,
+	urlcolor=BlueViolet,
+	plainpages=false,
+  	pdfpagelabels,
+  	bookmarksnumbered,
+  	pdftitle={\mytitle},
+  	pdfauthor={\myauthor},
+  	pdfkeywords={\mykeywords}
+  	]{hyperref}   
+
+
+\begin{document} 
+
+%%% xelatex font choices
+%\defaultfontfeatures{}
+%\defaultfontfeatures{Scale=MatchLowercase}   
+% The default choices make an article look like an AJS paper. 
+% You will need to buy these fonts or change the names to fonts you own.
+\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Old Style 7 Std} 
+\setsansfont[Mapping=tex-text]{Old Style 7 Std} 
+\setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata}   
+% Make figures as wide as the margins
+\setkeys{Gin}{width=1\textwidth} 
+
+               
+\chapterstyle{article-4}  % alternative styles defined in latex-custom-kjh/needs-memoir/
+\pagestyle{kjh}
+
+\title{\bigskip \bigskip {\fontspec{BodoniStd-Bold} {Title}}}   
+\author{Kieran Healy% \thanks{}
+}
+
+\date{\emph{Duke University} \\ {\scriptsize{\texttt{\href{mailto:kjhealy@soc.duke.edu}{kjhealy@soc.duke.edu}}}}}
+
+\published{Incomplete Draft. Please do not cite without permission.}
+
+\maketitle                                                                  
+
+% Include version information in footer. 
+\thispagestyle{kjhgit}  
+
+\begin{abstract}
+\end{abstract}
+
+% \epigraphfontsize{\footnotesize}     
+% \setlength{\epigraphwidth}{4in} 
+% \setlength{\epigraphrule}{0pt}      
+% \setlength{\beforeepigraphskip}{0pt}
+% \setlength{\afterepigraphskip}{0pt}
+% 
+% \epigraph{}{}         
+
+\section{Introduction}
+
+% bibliography
+\printbibliography
+
+\end{document}
+                    
