@@ -1,0 +1,50 @@
+%% Minimal example of Sweavel.sty; replaces Sweave.sty for nicer
+%% highlighing of R code in Sweave documents.
+
+\documentclass{article}
+\usepackage{Sweavel}
+% Uncomment some of the following to use some alternatives:
+% This version of Sweavel uses color names specified in the <svgnames>
+% option to the latex xcolor package. See xcolor package
+% documentation Section 4.3 "Colors via svgnames option" for names.
+
+% \def\Sweavesize{\normalsize}  (changes size of typeset R code and output)
+%\def\Rcolor{\color{black}}
+%\def\Routcolor{\color{MidnightBlue}}
+%\def\Rcommentcolor{\color{BrickRed}}
+% To change background color or R code and/or output, use e.g.:
+%\def\Rbackground{\color{LightGray}}
+%\def\Routbackground{\color{HoneyDew}}
+% To use rgb specifications use \color[rgb]{ , , }
+% To use gray scale use e.g. \color[gray]{0.5}
+% If you change any of these after the first chunk is produced, the
+% changes will have effect only for the next chunk.
+\SweaveOpts{echo=true}
+\begin{document}
+% Adjust spacing for color background
+%\fvset{listparameters={\setlength{\topsep}{0pt}}} 
+
+First we define a figure hook:
+<<results=hide>>=
+options(SweaveHooks = list(fig = function() par(mfrow=c(2,2))))
+@ 
+
+Then we setup variable definitions without actually evaluating them
+<<xydef,eval=false>>=
+# This is a comment
+x <- 1:10
+y <- rnorm(x)
+@ 
+
+
+Then we put the pieces together:
+\begin{center}
+<<fig=T>>=
+<<xydef>>
+lm1 <- lm(y~x)
+summary(lm1)
+plot(lm1)
+@ 
+\end{center}
+
+\end{document}
