@@ -11,6 +11,7 @@ Some simple configuration files I use to typeset my papers. At present, includes
 * 	Some page layouts for articles typeset using LaTeX (actually XeLaTeX) and the Memoir class. 
 *	A Biblatex format file for AJS-style citations (this is not finished yet). 
 *	A style file for typesetting [Sweave](http://en.wikipedia.org/wiki/Sweave) output using the Listings package.
+*	A replacement for using Sweave.sty when writing sweave documents in R/LaTeX (Sweavel.sty). This allows you to directly style Sweave files, rather than having to use the listings style file above.
 *	A template for an Article, using the layouts & format files here.
 *	A template for a Syllabus, using the layouts & format files here.    
 
