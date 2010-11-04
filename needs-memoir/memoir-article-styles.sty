@@ -243,7 +243,7 @@
     \setsecheadstyle{\Large\scshape\MakeLowercase} 
     \setsubsecheadstyle{\normalsize} 
 	\setaftersubsubsecskip{-1em}
-    \setsubsubsecheadstyle{\small\bfseries}
+    \setsubsubsecheadstyle{\small\sffamily}
     \renewcommand{\printchaptername}{} 
     \renewcommand{\chapternamenum}{} 
     \renewcommand{\chapnumfont}{\chaptitlefont} 
@@ -398,27 +398,27 @@
 %%% Custom appendix 
 %%%
 
-% Make the style for headers and footers in the Appendix
-\makepagestyle{kjhappendix}
-%\makeevenfoot{kjh}{\thepage}{}{}
-%\makeoddfoot{kjh}{}{}{\thepage}
-\makeheadrule{kjhapp}{\textwidth}{\normalrulethickness}
-\newcommand{\@kjhappmarks}{%
-  \let\@mkboth\markboth
-  \def\chaptermark##1{%
-    \markboth{%
-      \ifnum \c@secnumdepth >\m@ne
-        \if@mainmatter
-          \thechapter. \ %
-        \fi
-      \fi
-      ##1}{}}
-  \def\sectionmark##1{%
-    \markright{##1}}
-}
-\makepsmarks{kjhappendix}{\@kjhappmarks}
-\makeevenhead{kjhappendix}{\footnotesize\scshape Appendix}{}{\scshape\thepage}
-\makeoddhead{kjhappendix}{}{}{\footnotesize Data and Methods for \rightmark\normalsize\ \ \scshape\thepage}
+% % Make the style for headers and footers in the Appendix
+% \makepagestyle{kjhappendix}
+% %\makeevenfoot{kjh}{\thepage}{}{}
+% %\makeoddfoot{kjh}{}{}{\thepage}
+% \makeheadrule{kjhapp}{\textwidth}{\normalrulethickness}
+% \newcommand{\@kjhappmarks}{%
+%   \let\@mkboth\markboth
+%   \def\chaptermark##1{%
+%     \markboth{%
+%       \ifnum \c@secnumdepth >\m@ne
+%         \if@mainmatter
+%           \thechapter. \ %
+%         \fi
+%       \fi
+%       ##1}{}}
+%   \def\sectionmark##1{%
+%     \markright{##1}}
+% }
+% \makepsmarks{kjhappendix}{\@kjhappmarks}
+% \makeevenhead{kjhappendix}{\footnotesize\scshape Appendix}{}{\scshape\thepage}
+% \makeoddhead{kjhappendix}{}{}{\footnotesize Data and Methods for \rightmark\normalsize\ \ \scshape\thepage}
 
 %% Create a command to make a note at the top of the first page describing the
 %% publication status of the paper. 
