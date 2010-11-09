@@ -1,0 +1,38 @@
+\contentsline {chapter}{The Design of Tufte's Books}{15}{chapter*.5}
+\contentsline {section}{Typefaces}{16}{section*.6}
+\contentsline {section}{Headings}{19}{section*.7}
+\contentsline {paragraph}{Paragraph}{19}{paragraph*.8}
+\contentsline {section}{Environments}{19}{section*.9}
+\contentsline {chapter}{On the Use of the tufte-book Document Class}{21}{chapter*.10}
+\contentsline {section}{Page Layout}{21}{section*.11}
+\contentsline {subsection}{Headings}{21}{subsection*.12}
+\contentsline {section}{Sidenotes}{21}{section*.13}
+\contentsline {section}{References}{22}{section*.14}
+\contentsline {section}{Figures and Tables}{22}{section*.15}
+\contentsline {section}{Captions}{25}{section*.16}
+\contentsline {paragraph}{Vertical alignment}{25}{paragraph*.17}
+\contentsline {paragraph}{Horizontal alignment}{25}{paragraph*.18}
+\contentsline {section}{Full-width text blocks}{25}{section*.19}
+\contentsline {section}{Typography}{26}{section*.20}
+\contentsline {subsection}{Typefaces}{26}{subsection*.21}
+\contentsline {subsection}{Letterspacing}{26}{subsection*.22}
+\contentsline {section}{Document Class Options}{26}{section*.23}
+\contentsline {chapter}{Customizing Tufte-LaTeX}{29}{chapter*.24}
+\contentsline {section}{File Hooks}{29}{section*.25}
+\contentsline {section}{Numbered Section Headings}{29}{section*.26}
+\contentsline {section}{Changing the Paper Size}{30}{section*.27}
+\contentsline {section}{Customizing Marginal Material}{30}{section*.28}
+\contentsline {chapter}{Compatibility Issues}{33}{chapter*.29}
+\contentsline {section}{Converting from \texttt {article} to \texttt {tufte-handout}}{33}{section*.30}
+\contentsline {section}{Converting from \texttt {book} to \texttt {tufte-book}}{33}{section*.31}
+\contentsline {chapter}{Troubleshooting and Support}{35}{chapter*.32}
+\contentsline {section}{Tufte-\LaTeX \xspace Website}{35}{section*.33}
+\contentsline {section}{Tufte-\LaTeX \xspace Mailing Lists}{35}{section*.34}
+\contentsline {paragraph}{Discussion list}{35}{paragraph*.35}
+\contentsline {paragraph}{Commits list}{35}{paragraph*.36}
+\contentsline {section}{Getting Help}{35}{section*.37}
+\contentsline {section}{Errors, Warnings, and Informational Messages}{36}{section*.38}
+\contentsline {section}{Package Dependencies}{36}{section*.39}
+\contentsline {chapter}{Bibliography}{39}{chapter*.40}
+\contentsline {chapter}{Index}{41}{chapter*.41}
+\contentsfinish 

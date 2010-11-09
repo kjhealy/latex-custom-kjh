@@ -1,0 +1,11 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1}{\ignorespaces This is a margin figure. The helix is defined by $x = \qopname \relax o{cos}(2\pi z)$, $y = \qopname \relax o{sin}(2\pi z)$, and $z = [0, 2.7]$. The figure was drawn using Asymptote (\url {http://asymptote.sf.net/}).}}{23}{section*.15}
+\contentsline {figure}{\numberline {2}{\ignorespaces This graph shows $y = \qopname \relax o{sin}x$ from about $x = [-10, 10]$. \emph {Notice that this figure takes up the full page width.}}}{23}{section*.15}
+\contentsline {figure}{\numberline {3}{\ignorespaces Hilbert curves of various degrees $n$.}}{23}{section*.15}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsfinish 

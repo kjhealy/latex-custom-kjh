@@ -1,0 +1,43 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bringhurst(2005)]{Bringhurst2005}
+Robert Bringhurst.
+\newblock \emph{The Elements of Typography}.
+\newblock Hartley \& Marks, 3.1 edition, 2005.
+\newblock ISBN 0-88179-205-5.
+
+\bibitem[Tufte(1990)]{Tufte1990}
+Edward~R. Tufte.
+\newblock \emph{Envisioning Information}.
+\newblock Graphics Press, Cheshire, Connecticut, 1990.
+\newblock ISBN 0-9613921-1-8.
+
+\bibitem[Tufte(1997)]{Tufte1997}
+Edward~R. Tufte.
+\newblock \emph{Visual Explanations}.
+\newblock Graphics Press, Cheshire, Connecticut, 1997.
+\newblock ISBN 0-9613921-2-6.
+
+\bibitem[Tufte(2001)]{Tufte2001}
+Edward~R. Tufte.
+\newblock \emph{The Visual Display of Quantitative Information}.
+\newblock Graphics Press, Cheshire, Connecticut, 2001.
+\newblock ISBN 0-9613921-4-2.
+
+\bibitem[Tufte(2006)]{Tufte2006}
+Edward~R. Tufte.
+\newblock \emph{Beautiful Evidence}.
+\newblock Graphics Press, {LLC}, first edition, May 2006.
+\newblock ISBN 0-9613921-7-7.
+
+\bibitem[Umeki(2008)]{pkg-geometry}
+Hideo Umeki.
+\newblock The \texttt{geometry} package.
+\newblock \url{http://ctan.org/pkg/geometry}, December 2008.
+
+\end{thebibliography}
