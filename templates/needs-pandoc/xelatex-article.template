@@ -1,4 +1,4 @@
-$if(legacy-header)$
+if(legacy-header)$
 	$legacy-header$
 $else$
 	\documentclass[11pt,article,oneside]{memoir}
