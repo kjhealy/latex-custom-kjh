@@ -235,6 +235,54 @@
 
 
 %%%
+%%% article-4-sans (AJS, but sans-serif headings) 
+%%%
+
+%% Make the style for Chapters and sections
+   \makechapterstyle{article-4-sans}{
+    \setsecheadstyle{\Large\sffamily} 
+    \setsubsecheadstyle{\normalsize\sffamily\itshape} 
+	\setaftersubsubsecskip{-1em}
+    \setsubsubsecheadstyle{\small}
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\sffamily} 
+    \renewcommand{\cftchapterpresnum}{\sffamily} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    %\settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % set name of bibliography to 'references'
+    \renewcommand{\bibname}{\mdseries\Large\sffamily References}
+
+    % Title flush left
+    \pretitle{\flushleft\LARGE \sffamily\bfseries}
+    \posttitle{\par\vskip 0.5em}
+    \preauthor{\flushleft\normalsize\medskip}
+    \postauthor{\lineskip 1em}
+    \predate{\flushleft\small\vspace{0.5em}}
+    \postdate{\par\vskip 2em}
+    
+    % 'abstract' bigger skip from title
+    \renewcommand{\abstractname}{\normalfont\scriptsize}
+	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    %\abstractrunin
+
+   }
+
+
+%%%
 %%% article-5 (AJS) (two authors)
 %%%
 
