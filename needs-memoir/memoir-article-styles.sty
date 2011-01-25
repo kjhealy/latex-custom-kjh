@@ -81,7 +81,7 @@
     \postdate{\par\vskip 1em}
     
     % 'abstract' title, bigger skip from title
-    \renewcommand{\abstractname}{}
+    \addto\captionsamerican{\renewcommand{\abstractname}{}}
     \abstractrunin
    }
      
@@ -126,8 +126,9 @@
     \postdate{\par\vskip 2em}
     
     % 'abstract' title, bigger skip from title
-    \renewcommand{\abstractname}{\normalfont\scriptsize\emph{Abstract:}}
-	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    \addto\captionsamerican{\renewcommand{\abstractname}{Abstract:}}
+    \renewcommand{\abstractnamefont}{\normalfont\scriptsize\itshape}
+    \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
     \abstractrunin
 
    }
@@ -181,7 +182,9 @@
     % \postdate{\par\vskip 2em}
     
     % 'abstract' title, bigger skip from title
-    \renewcommand{\abstractname}{\normalfont\emph{Abstract:}}
+    \addto\captionsamerican{\renewcommand{\abstractname}{Abstract:}}
+    \renewcommand{\abstractnamefont}{\normalfont\scriptsize\itshape}
+    \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
     \abstractrunin
 
    }     
@@ -227,8 +230,8 @@
     \postdate{\par\vskip 2em}
     
     % 'abstract' bigger skip from title
-    \renewcommand{\abstractname}{\normalfont\scriptsize}
-	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    \addto\captionsamerican{\renewcommand{\abstractname}{}}
+    \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
     %\abstractrunin
 
    }
@@ -266,19 +269,21 @@
     % set name of bibliography to 'references'
     \renewcommand{\bibname}{\mdseries\Large\sffamily References}
 
-    % Title flush left
-    \pretitle{\flushleft\LARGE \sffamily\bfseries}
+     % Title flush left
+    \pretitle{\flushleft\LARGE\sffamily \bfseries}
     \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft\normalsize\medskip}
+    \preauthor{\flushleft\Large \medskip}
     \postauthor{\lineskip 1em}
     \predate{\flushleft\small\vspace{0.5em}}
     \postdate{\par\vskip 2em}
     
     % 'abstract' bigger skip from title
-    \renewcommand{\abstractname}{\normalfont\scriptsize}
-	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
-    %\abstractrunin
+    \addto\captionsamerican{\renewcommand*{\abstractname}{}}
+    \renewcommand{\abstractnamefont}{\normalfont\scriptsize}
+    \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    \abstractrunin
 
+    
    }
 
 
@@ -323,7 +328,7 @@
     \postdate{\par\vskip 2em}
     
     % 'abstract' bigger skip from title
-    \renewcommand{\abstractname}{\normalfont\scriptsize}
+    \renewcommand{\abstractname}{}
 	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
     %\abstractrunin
 
