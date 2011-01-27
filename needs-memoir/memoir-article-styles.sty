@@ -8,6 +8,12 @@
 \long\def\symbolfootnote[#1]#2{\begingroup%
 \def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
 
+%%% redefine \and and \andnext to remove tabular environment
+%%% needed below for custom article-styles when multiple authors are present. 
+\renewcommand{\and}{\, }
+\renewcommand*{\andnext}{%
+  \\\medskip }
+
 %%%
 %%% memo-comments
 %%%
@@ -221,14 +227,15 @@
     % set name of bibliography to 'references'
     \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
 
-    % Title flush left
-    \pretitle{\par\vskip 3em \begin{flushleft} \Huge}
+    % % Title flush left
+    \pretitle{\par\vskip 3em 
+        \begin{flushleft}\Huge\bfseries}
     \posttitle{\end{flushleft}\par\vskip 0.5em}
-    \preauthor{\begin{flushleft} \Large\medskip}
+    \preauthor{\begin{flushleft}\Large\bigskip}
     \postauthor{\end{flushleft}\lineskip 1em}
-    \predate{\begin{flushleft}\normalize\vspace{0.5em}}
+    \predate{\begin{flushleft}\normalsize\vspace{0.5em}}
     \postdate{\end{flushleft}\par\vskip 2em}
-    
+
     % 'abstract' bigger skip from title
     \addto\captionsamerican{\renewcommand{\abstractname}{}}
     \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
@@ -263,75 +270,28 @@
     \maxsecnumdepth{chapter} 
     \setsecnumdepth{chapter}
 
-    % reduce skip after section heading
+    %% reduce skip after section heading
     \setaftersecskip{1.7ex}
     
-    % set name of bibliography to 'references'
+    %% set name of bibliography to 'references'
     \renewcommand{\bibname}{\mdseries\Large\sffamily References}
 
-     % Title flush left
-    \pretitle{\par\vskip 3em \begin{flushleft}\Huge\sffamily\bfseries}
+    % % Title flush left
+    \pretitle{\par\vskip 3em 
+        \begin{flushleft}\Huge\sffamily\bfseries}
     \posttitle{\end{flushleft}\par\vskip 0.5em}
-    \preauthor{\begin{flushleft}\Large \medskip}
+    \preauthor{\begin{flushleft}\Large\bigskip}
     \postauthor{\end{flushleft}\lineskip 1em}
     \predate{\begin{flushleft}\normalsize\vspace{0.5em}}
     \postdate{\end{flushleft}\par\vskip 2em}
     
-    % 'abstract' bigger skip from title
+    %% 'abstract' bigger skip from title
     \addto\captionsamerican{\renewcommand*{\abstractname}{}}
     \renewcommand{\abstractnamefont}{\normalfont\scriptsize}
     \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
     \abstractrunin
 
     
-   }
-
-
-%%%
-%%% article-5 (AJS) (two authors)
-%%%
-
-%% Make the style for Chapters and sections
-   \makechapterstyle{article-5}{
-    \setsecheadstyle{\Large\scshape\MakeLowercase} 
-    \setsubsecheadstyle{\normalsize} 
-	\setaftersubsubsecskip{-1em}
-    \setsubsubsecheadstyle{\small\sffamily}
-    \renewcommand{\printchaptername}{} 
-    \renewcommand{\chapternamenum}{} 
-    \renewcommand{\chapnumfont}{\chaptitlefont} 
-    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
-    \renewcommand{\afterchapternum}{} 
-    \renewcommand{\printchaptername}{\secheadstyle}
-    \renewcommand{\cftchapterfont}{\normalfont} 
-    \renewcommand{\cftchapterpagefont}{\normalfont\scshape} 
-    \renewcommand{\cftchapterpresnum}{\scshape} 
-    %\renewcommand{\cftchapterleader}{} 
-    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
-    \captiontitlefont{\small}
-    %\settocdepth{chapter}
-    \maxsecnumdepth{chapter} 
-    \setsecnumdepth{chapter}
-
-    % reduce skip after section heading
-    \setaftersecskip{1.7ex}
-    
-    % set name of bibliography to 'references'
-    \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
-
-    % Title flush left
-    \pretitle{\begin{flushleft}\LARGE}
-    \posttitle{\end{flushleft}\par\vskip 0.5em}
-    \preauthor{\begin{flushleft} \lineskip 1em \smallskip}
-    \postauthor{\end{flushleft}}
-    \predate{\begin{flushleft}\scriptsize\vspace{1em}}
-    \postdate{\end{flushleft}\par\vskip 2em}
-    
-    % 'abstract' bigger skip from title
-    \renewcommand{\abstractname}{}
-	\renewcommand{\abstracttextfont}{\normalfont\scriptsize}
-    %\abstractrunin
-
    }
 
 %%%
