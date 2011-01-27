@@ -41,10 +41,10 @@
     \pretitle{\LARGE\sffamily}
     \posttitle{}
     \predate{\sffamily\footnotesize}
-    \preauthor{\flushleft\Large\sffamily}
-    \postauthor{}
-    \predate{\flushleft\smallskip\sffamily\footnotesize}
-    \postdate{}
+    \preauthor{\begin{flushleft}\Large\sffamily}
+    \postauthor{\end{flushleft}}
+    \predate{\begin{flushleft}\smallskip\sffamily\footnotesize}
+    \postdate{\end{flushleft}}
    }
 
 %%%
@@ -118,12 +118,12 @@
     \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
 
     % Title flush left
-    \pretitle{\flushleft\LARGE\sffamily}
-    \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft\sffamily\itshape  \Large \vspace{0.5em}}
-    \postauthor{}
-    \predate{\sffamily\flushleft\footnotesize\vspace{0.9em}}
-    \postdate{\par\vskip 2em}
+    \pretitle{\begin{flushleft}\LARGE\sffamily}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+    \preauthor{\begin{flushleft}\sffamily\itshape  \Large \vspace{0.5em}}
+    \postauthor{\end{flushleft}}
+    \predate{\begin{flushleft}\sffamily\footnotesize\vspace{0.9em}}
+    \postdate{\end{flushleft}\par\vskip 2em}
     
     % 'abstract' title, bigger skip from title
     \addto\captionsamerican{\renewcommand{\abstractname}{Abstract:}}
@@ -169,7 +169,7 @@
     \pretitle{\LARGE\sffamily}
     \posttitle{\par\vskip 1em}
     \predate{\sffamily\footnotesize}
-    \preauthor{\flushleft\Large\sffamily \lineskip 1em}
+    \preauthor{\Large\sffamily \lineskip 1em}
     \postauthor{\par\lineskip 1em}
     \predate{\sffamily\footnotesize}
     \postdate{\par\vskip 1em}
@@ -222,12 +222,12 @@
     \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
 
     % Title flush left
-    \pretitle{\par\vskip 3em \flushleft\LARGE \bfseries}
-    \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft\normalsize\medskip}
-    \postauthor{\lineskip 1em}
-    \predate{\flushleft\small\vspace{0.5em}}
-    \postdate{\par\vskip 2em}
+    \pretitle{\par\vskip 3em \begin{flushleft} \Huge}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+    \preauthor{\begin{flushleft} \Large\medskip}
+    \postauthor{\end{flushleft}\lineskip 1em}
+    \predate{\begin{flushleft}\normalize\vspace{0.5em}}
+    \postdate{\end{flushleft}\par\vskip 2em}
     
     % 'abstract' bigger skip from title
     \addto\captionsamerican{\renewcommand{\abstractname}{}}
@@ -270,12 +270,12 @@
     \renewcommand{\bibname}{\mdseries\Large\sffamily References}
 
      % Title flush left
-    \pretitle{\par\vskip 3em \flushleft\LARGE\sffamily \bfseries}
-    \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft\Large \medskip}
-    \postauthor{\lineskip 1em}
-    \predate{\flushleft\small\vspace{0.5em}}
-    \postdate{\par\vskip 2em}
+    \pretitle{\par\vskip 3em \begin{flushleft}\Huge\sffamily\bfseries}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+    \preauthor{\begin{flushleft}\Large \medskip}
+    \postauthor{\end{flushleft}\lineskip 1em}
+    \predate{\begin{flushleft}\normalsize\vspace{0.5em}}
+    \postdate{\end{flushleft}\par\vskip 2em}
     
     % 'abstract' bigger skip from title
     \addto\captionsamerican{\renewcommand*{\abstractname}{}}
@@ -320,12 +320,12 @@
     \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
 
     % Title flush left
-    \pretitle{\flushleft\LARGE}
-    \posttitle{\par\vskip 0.5em}
-    \preauthor{\flushleft \lineskip 1em \smallskip}
-    \postauthor{}
-    \predate{\flushleft\scriptsize\vspace{1em}}
-    \postdate{\par\vskip 2em}
+    \pretitle{\begin{flushleft}\LARGE}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+    \preauthor{\begin{flushleft} \lineskip 1em \smallskip}
+    \postauthor{\end{flushleft}}
+    \predate{\begin{flushleft}\scriptsize\vspace{1em}}
+    \postdate{\end{flushleft}\par\vskip 2em}
     
     % 'abstract' bigger skip from title
     \renewcommand{\abstractname}{}
