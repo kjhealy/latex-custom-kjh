@@ -67,7 +67,9 @@
   }
 
 \providecommand{\@evenhead}{} \providecommand{\@oddhead}{}
-\providecommand{\@evenfoot}{} \providecommand{\@oddfoot}{}
+\providecommand{\@evenfoot}{{\sffamily\tiny 268 Sociology/Psychology
+      Building, Duke University, Durham, North Carolina 27708, USA. Phone:
+      \myphone \,Fax: \myfax.}} \providecommand{\@oddfoot}{}
 
 \pagestyle{headings}
 
@@ -80,8 +82,6 @@
 	\raggedright \fromsig}}
 
 \signature{
-	%<my name and rank>
-	\\\url{
-	%<my email address>
-	}}
+	Associate Professor in Sociology\\ and the Kenan Institute for Ethics
+	\\\url{kjhealy@soc.duke.edu}}
 	
