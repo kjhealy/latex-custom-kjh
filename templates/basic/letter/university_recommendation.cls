@@ -29,12 +29,9 @@
 \LoadClass{university_letter}
 
 \renewcommand{\ps@headings}
-	{\setlength{\headheight}{41pt}%
+	{\setlength{\headheight}{32pt}%
 	\renewcommand{\@oddhead}
-		{\parbox{\textwidth}{%
-		%<my last name>		
-		letter for \emph{\toname}\hfill\@date\hfill\pagename{} \thepage\\
-		\rule[3pt]{\textwidth}{1pt}}}
+        {\parbox{\textwidth}{Healy letter for \emph{\toname}\hfill\@date\hfill\pagename{} \thepage\\\rule[3pt]{\textwidth}{1pt}}}
 	\renewcommand{\@oddfoot}{}
 	\renewcommand{\@evenhead}{\@oddhead}
 	\renewcommand{\@evenfoot}{\@oddfoot}}
