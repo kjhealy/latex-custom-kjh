@@ -58,7 +58,7 @@
 \renewcommand{\ps@firstpage}{%
   \setlength{\headheight}{0cm}\setlength{\headsep}{3.5cm}%
   \renewcommand{\@oddhead}{\usebox{\tsheader}}
-  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Sociology/Psychlogy
+  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Sociology/Psychology
       Building, Duke University, Durham, North Carolina 27708, USA. P:\myphone \,F:\myfax.}}%
     \renewcommand{\@evenhead}{}\renewcommand{\@evenfoot}{{\sffamily\tiny 268 Sociology/Psychlogy
       Building, Duke University, Durham, North Carolina 27708, USA. P:\myphone \,F:\myfax.}}%
