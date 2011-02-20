@@ -6,9 +6,10 @@
 
 
 \documentclass[11pt,article,oneside]{memoir}
-% Script-based version control (needs vc package)
-\input{vc}
+%% Script-based version control tag (needs vc package)
+\input{vc} % comment this out if you don't use the vc package
 
+%% Required packages
 \usepackage{graphicx,url}
 \usepackage{rotating} 
 \usepackage{memoir-article-styles} % in latex-custom-kjh/needs-memoir
@@ -20,11 +21,19 @@
 %% Biblatex
 \usepackage[american]{babel}
 \usepackage[babel,autostyle]{csquotes}
-%% \usepackage[style=authoryear-comp-ajs,abbreviate=true]{biblatex}  % authoryear-comp-ajs is in latex-custom-kjh/needs-biblatex, but you should use the following setup instead
+\usepackage[style=chicago-authordate,abbreviate=true,backend=biber]{biblatex} % chicago support packages come with texlive 2010; biber needs to be installed separately. Get it from http://biblatex-biber.sourceforge.net/     
 
-\usepackage[style=chicago-authordate,abbreviate=true,backend=biber]{biblatex} % chicago support packages are in texlive; biber needs to be installed separately. Get it from http://biblatex-biber.sourceforge.net/     
+%% Your bibliography file or files go here. Biblatex allows for multiple \addbibresource{} statements.
+\addbibresource{socbib.bib}    % http://kjhealy.github.com/socbibs/
 
-\bibliography{socbib}  % http://kjhealy.github.com/socbibs/
+%% Some formatting tweaks to biblatex-chicago to bring.
+
+%% Enclose article titles in quotes (this puts article titles in Title Case as well)
+\DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
+
+%% Ensure book titles are in Title Case Like This, not Sentence case like this.
+\DeclareFieldFormat[book]{title}{%
+  \mkbibemph{#1}\isdot}
 
 %% Name, Title, Affiliation, Contact
 \def\myaffiliation{Duke University}
