@@ -33,7 +33,8 @@
 
 %% Ensure book titles are in Title Case Like This, not Sentence case like this.
 \DeclareFieldFormat[book]{title}{%
-  \mkbibemph{#1}\isdot}
+  \mkbibemph{#1}\isdot} % for books
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
 
 %% Name, Title, Affiliation, Contact
 \def\myaffiliation{Duke University}
