@@ -1,0 +1,41 @@
+%% Preamble/settings for documents exported from .org files to .tex files when the 
+%% tex engine is xelatex.
+%%
+%% Kieran Healy
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{org-preamble.xelatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX export]
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{memoir-article-styles}
+\usepackage[american]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[svgnames]{xcolor}
+\usepackage{soul}
+\usepackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
+citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
+pdfpagelabels, bookmarksnumbered]{hyperref}
+\usepackage{etoolbox}
+\usepackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
+\bibliography{socbib} % bibliography
+  %% these tweak the biblatex-chicago format to conform to AJS style.
+  \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
+  \DeclareFieldFormat[book]{title}{%
+  \mkbibemph{#1}\isdot} % for books
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
+
+%% Pagestyle
+\pagestyle{kjh}
+
+%% Set up minted
+\usepackage{minted}
+\usemintedstyle{tango} 
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\setkeys{Gin}{width=1\textwidth} 
+
+
+\endinput
