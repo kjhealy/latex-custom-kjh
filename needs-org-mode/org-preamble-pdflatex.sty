@@ -7,6 +7,17 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{org-preamble.xelatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to pdLaTeX export (including MinionPro)]
 
+\RequirePackage{ifthen}
+\newboolean{@minion}
+
+\setboolean{@minion}{false}
+
+\DeclareOption{@minion}{
+  \setboolean{@minion}{true}
+}
+
+\ProcessOptions
+
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
 \usepackage{wrapfig}
@@ -18,10 +29,17 @@
 \usepackage{soul}
 
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
-\usepackage[fullfamily,opticals]{MinionPro}
-\usepackage[scaled=0.78]{beramono}
-\usepackage[config=mt-pmn]{microtype}
-\renewcommand{\scdefault}{ssc} %% nicer small-caps headings
+%%% If MinionPro is not specified, use Times New Roman instead
+\ifthenelse{\boolean{@minion}}{
+  \usepackage[fullfamily,opticals]{MinionPro}
+  \usepackage[scaled=0.78]{beramono}
+  \usepackage[config=mt-pmn]{microtype}
+  \renewcommand{\@scdefault}{ssc} %% nicer small-caps headings  
+}{
+  \usepackage{mathptmx}
+  \usepackage[scaled=0.78]{beramono}
+  \usepackage[config=mt-ptm]{microtype}
+}
 
 
 \usepackage[colorlinks=true, urlcolor=DarkSlateBlue,
