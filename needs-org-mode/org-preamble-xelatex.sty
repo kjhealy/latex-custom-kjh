@@ -3,13 +3,29 @@
 %%
 %% Usage: \usepackage{org-preamble-xelatex} in your document
 %% preamble. Font choice should be set in the document after the
-%% package is declared.
+%% package is declared. If \usepackage[minted]{org-preamble-xelatex}
+%% is given, the minted package for code highlighting is turned
+%% on. Minted requires that pygments be installed
+%% (http://pygments.org/) and that \write18 support be enabled in your
+%% tex compiler.
 
 %% Kieran Healy
 %%
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{org-preamble.xelatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX export]
+
+\RequirePackage{ifthen}
+\newboolean{@minted} %
+
+\setboolean{@minted}{false} % minted is off by default
+
+\DeclareOption{@minted}{
+  \setboolean{@minted}{true}
+}
+
+\ProcessOptions
+
 
 \usepackage{fontspec}
 \usepackage{xunicode}
@@ -35,11 +51,12 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
 %% Pagestyle
 \pagestyle{kjh}
 
-%% Set up minted
-\usepackage{minted}
-\usemintedstyle{tango} 
-\definecolor{bg}{rgb}{0.95,0.95,0.95}
-\setkeys{Gin}{width=1\textwidth} 
-
+%% If [minted] option is chosen, activate minted
+\ifthenelse{\boolean{@minted}}{
+  \usepackage{minted}
+  \usemintedstyle{tango} 
+  \definecolor{bg}{rgb}{0.95,0.95,0.95}
+  \setkeys{Gin}{width=1\@textwidth} 
+}{}
 
 \endinput
