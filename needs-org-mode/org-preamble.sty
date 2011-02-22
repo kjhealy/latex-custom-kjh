@@ -1,0 +1,66 @@
+%% Preamble/settings for documents exported from .org files to .tex files when the 
+%% tex engine is xelatex or pdflatex.
+%%
+%% Usage: \usepackage{org-preamble} in your document
+%% preamble. 
+
+%% \usepackage[xelatex]{org-preamble} selects a preamble suitable for
+%% compilation in by the xelatex
+%% engine. \usepackage[pdflatex]{org-preamble} selects a preamble
+%% suitable for compilation by pdflatex.
+
+%% \usepackage[minion]{org-preamble} activates the MinionPro package
+%% instead of Times New Roman. The actual Minion Pro font files must
+%% be installed first, in accordance with the instructions in the
+%% MinionPro package.
+
+%% \usepackage[minted]{org-preamble} activates the minted
+%% package for code highlighting. Minted requires that pygments be
+%% installed (http://pygments.org/) and that \write18 support be
+%% enabled in your tex compiler.
+
+%% Kieran Healy
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{org-preamble.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX or pdfLaTeX export]
+
+\RegquirePackage{xkeyval}
+
+\newif\ifminted 
+\DeclareOptionX{minted}{
+  \RequirePackage{minted}
+  \usemintedstyle{tango} 
+  \definecolor{bg}{rgb}{0.95,0.95,0.95}
+  \setkeys{Gin}{width=1\@textwidth}   
+} 
+
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{url}
+\RequirePackage{rotating}
+\RequirePackage{memoir-article-styles}
+\RequirePackage[american]{babel}
+\RequirePackage[babel]{csquotes}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{soul}
+\RequirePackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
+citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
+pdfpagelabels, bookmarksnumbered]{hyperref}
+\RequirePackage{etoolbox}
+\RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
+\bibliography{socbib} % bibliography
+  %% these tweak the biblatex-chicago format to conform to AJS style.
+  \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
+  \DeclareFieldFormat[book]{title}{%
+  \mkbibemph{#1}\isdot} % for books
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
+
+%% Pagestyle
+\pagestyle{kjh}
+
+
+\ProcessOptions
+
+\endinput
