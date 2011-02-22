@@ -11,7 +11,7 @@
 
 %% Kieran Healy
 %%
-
+ 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{org-preamble-xelatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX export]
 
@@ -27,20 +27,20 @@
 \ProcessOptions
 
 
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{url}
-\usepackage{rotating}
-\usepackage{memoir-article-styles}
-\usepackage[american]{babel}
-\usepackage[babel]{csquotes}
-\usepackage[svgnames]{xcolor}
-\usepackage{soul}
-\usepackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{url}
+\RequirePackage{rotating}
+\RequirePackage{memoir-article-styles}
+\RequirePackage[american]{babel}
+\RequirePackage[babel]{csquotes}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{soul}
+\RequirePackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
 pdfpagelabels, bookmarksnumbered]{hyperref}
-\usepackage{etoolbox}
-\usepackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
+\RequirePackage{etoolbox}
+\RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
 \bibliography{socbib} % bibliography
   %% these tweak the biblatex-chicago format to conform to AJS style.
   \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
@@ -53,7 +53,7 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
 
 %% If [minted] option is chosen, activate minted
 \ifthenelse{\boolean{@minted}}{
-  \usepackage{minted}
+  \RequirePackage{minted}
   \usemintedstyle{tango} 
   \definecolor{bg}{rgb}{0.95,0.95,0.95}
   \setkeys{Gin}{width=1\@textwidth} 
