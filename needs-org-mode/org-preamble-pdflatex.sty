@@ -1,33 +1,24 @@
 %% Preamble/settings for documents exported from .org files to .tex files when the 
-%% tex engine is pdflatex.
+%% tex engine is xelatex or pdflatex.
 %%
-%% Usage: \usepackage{org-preamble-pdflatex} in your document
-%% preamble. \usepackage[minion]{org-preamble-pdflatex}
-%% activates the MinionPro package instead of Times New Roman. The
-%% actual Minion Pro font files must be installed first, in accordance
-%% with the instructions in the MinionPro package.
-
-%% \usepackage[minted]{org-preamble-xelatex} activates the minted
-%% package for code highlighting. Minted requires that pygments be
-%% installed (http://pygments.org/) and that \write18 support be
-%% enabled in your tex compiler.
+%% Usage: \usepackage{org-preamble} in your document
+%% preamble. Font choice should be set in the document after the
+%% package is declared. If \usepackage[minted]{org-preamble-xelatex}
+%% is given, the minted package for code highlighting is turned
+%% on. Minted requires that pygments be installed
+%% (http://pygments.org/) and that \write18 support be enabled in your
+%% tex compiler.
 
 %% Kieran Healy
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{org-preamble.pdflatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to pdfLaTeX export (including MinionPro)]
+\ProvidesPackage{org-preamble-xelatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX export]
 
 \RequirePackage{ifthen}
-\newboolean{@minion}
-\newboolean{@minted}
+\newboolean{@minted} %
 
-\setboolean{@minion}{false} % minion is off by default
 \setboolean{@minted}{false} % minted is off by default
-
-\DeclareOption{@minion}{
-  \setboolean{@minion}{true}
-}
 
 \DeclareOption{@minted}{
   \setboolean{@minted}{true}
@@ -35,32 +26,17 @@
 
 \ProcessOptions
 
-\usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
-\usepackage{wrapfig}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{url}
 \usepackage{rotating}
 \usepackage{memoir-article-styles}
 \usepackage[american]{babel}
 \usepackage[babel]{csquotes}
 \usepackage[svgnames]{xcolor}
 \usepackage{soul}
-
-%%% If \usepackage[minion]{org-preamble-pdflatex} is set,
-%%% MinionPro and microtype setup (requires full installation of MinionPro font)
-%%% If MinionPro is not specified, use Times New Roman instead.
-\ifthenelse{\boolean{@minion}}{
-  \usepackage[fullfamily,opticals]{MinionPro}
-  \usepackage[scaled=0.78]{beramono}
-  \usepackage[config=mt-pmn]{microtype}
-  \renewcommand{\@scdefault}{ssc} %% nicer small-caps headings  
-}{
-  \usepackage{mathptmx}
-  \usepackage[scaled=0.78]{beramono}
-  \usepackage[config=mt-ptm]{microtype}
-}
-
-
-\usepackage[colorlinks=true, urlcolor=DarkSlateBlue,
+\usepackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
 pdfpagelabels, bookmarksnumbered]{hyperref}
 \usepackage{etoolbox}
