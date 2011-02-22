@@ -16,7 +16,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{org-preamble.pdflatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to pdfLaTeX export (including MinionPro)]
+\ProvidesPackage{org-preamble-pdflatex.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to pdfLaTeX export (including MinionPro)]
 
 \RequirePackage{ifthen}
 \newboolean{@minion}
@@ -25,11 +25,11 @@
 \setboolean{@minion}{false} % minion is off by default
 \setboolean{@minted}{false} % minted is off by default
 
-\DeclareOption{@minion}{
+\DeclareOption{minion}{
   \setboolean{@minion}{true}
 }
 
-\DeclareOption{@minted}{
+\DeclareOption{minted}{
   \setboolean{@minted}{true}
 }
 
