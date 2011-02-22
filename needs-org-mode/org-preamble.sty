@@ -25,16 +25,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{org-preamble.sty}[2011/02/21 v0.01 Bundling of Preamble items for Org to XeLaTeX or pdfLaTeX export]
 
-\RequirePackage{ifthen}
-\newboolean{@minted} %
+\RegquirePackage{xkeyval}
 
-\setboolean{@minted}{false} % minted is off by default
-
-\DeclareOption{@minted}{
-  \setboolean{@minted}{true}
-}
-
-\ProcessOptions
+\newif\ifminted 
+\DeclareOptionX{minted}{
+  \RequirePackage{minted}
+  \usemintedstyle{tango} 
+  \definecolor{bg}{rgb}{0.95,0.95,0.95}
+  \setkeys{Gin}{width=1\@textwidth}   
+} 
 
 
 \RequirePackage{fontspec}
@@ -61,12 +60,7 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
 %% Pagestyle
 \pagestyle{kjh}
 
-%% If [minted] option is chosen, activate minted
-\ifthenelse{\boolean{@minted}}{
-  \RequirePackage{minted}
-  \usemintedstyle{tango} 
-  \definecolor{bg}{rgb}{0.95,0.95,0.95}
-  \setkeys{Gin}{width=1\@textwidth} 
-}{}
+
+\ProcessOptions
 
 \endinput
