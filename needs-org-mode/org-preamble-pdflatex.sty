@@ -35,36 +35,36 @@
 
 \ProcessOptions
 
-\usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
-\usepackage{wrapfig}
-\usepackage{rotating}
-\usepackage{memoir-article-styles}
-\usepackage[american]{babel}
-\usepackage[babel]{csquotes}
-\usepackage[svgnames]{xcolor}
-\usepackage{soul}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fixltx2e}
+\RequirePackage{wrapfig}
+\RequirePackage{rotating}
+\RequirePackage{memoir-article-styles}
+\RequirePackage[american]{babel}
+\RequirePackage[babel]{csquotes}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{soul}
 
-%%% If \usepackage[minion]{org-preamble-pdflatex} is set,
+%%% If \RequirePackage[minion]{org-preamble-pdflatex} is set,
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
 %%% If MinionPro is not specified, use Times New Roman instead.
 \ifthenelse{\boolean{@minion}}{
-  \usepackage[fullfamily,opticals]{MinionPro}
-  \usepackage[scaled=0.78]{beramono}
-  \usepackage[config=mt-pmn]{microtype}
+  \RequirePackage[fullfamily,opticals]{MinionPro}
+  \RequirePackage[scaled=0.78]{beramono}
+  \RequirePackage[config=mt-pmn]{microtype}
   \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
 }{
-  \usepackage{mathptmx}
-  \usepackage[scaled=0.78]{beramono}
-  \usepackage[config=mt-ptm]{microtype}
+  \RequirePackage{mathptmx}
+  \RequirePackage[scaled=0.78]{beramono}
+  \RequirePackage[config=mt-ptm]{microtype}
 }
 
 
-\usepackage[colorlinks=true, urlcolor=DarkSlateBlue,
+\RequirePackage[colorlinks=true, urlcolor=DarkSlateBlue,
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
 pdfpagelabels, bookmarksnumbered]{hyperref}
-\usepackage{etoolbox}
-\usepackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
+\RequirePackage{etoolbox}
+\RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
 \bibliography{socbib} % bibliography
   %% these tweak the biblatex-chicago format to conform to AJS style.
   \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
@@ -77,7 +77,7 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
 
 %% If [minted] option is chosen, activate minted
 \ifthenelse{\boolean{@minted}}{
-  \usepackage{minted}
+  \RequirePackage{minted}
   \usemintedstyle{tango} 
   \definecolor{bg}{rgb}{0.95,0.95,0.95}
   \setkeys{Gin}{width=1\@textwidth} 
