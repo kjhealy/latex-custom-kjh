@@ -1,0 +1,21 @@
+#+TITLE: Sample Article for Export to PDF from Org-mode
+#+AUTHOR: Kieran Healy \newline /Duke University/
+#+DATE:
+#+OPTIONS: toc:nil :num nil
+#+LATEX_CMD: pdflatex
+#+LATEX_HEADER: \chapterstyle{article-4}
+#+LATEX_HEADER: \published{Draft only. Please do not cite without permission.}
+
+#+BEGIN_LaTeX 
+\thispagestyle{kjhgit}
+#+END_LaTeX
+
+** Introduction
+If you install the =latex-custom= directory where \TeX will find it, and also install the Emacs Starter Kit for the Social Sciences, then you can do =C-c C-e d= to produce a PDF directly using the custom style files and other settings in =latex-custom=. All the setup is contained for convenience in =org-preamble-pdflatex.sty=. 
+
+** And So on
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
