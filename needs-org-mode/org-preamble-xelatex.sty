@@ -40,7 +40,7 @@
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
 pdfpagelabels, bookmarksnumbered]{hyperref}
 \RequirePackage{etoolbox}
-\RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false]{biblatex-chicago} % biblatex setup
+\RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false, uniquename=false]{biblatex-chicago} % biblatex setup
 \bibliography{socbib} % bibliography
   %% these tweak the biblatex-chicago format to conform to AJS style.
   \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
