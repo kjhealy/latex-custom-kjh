@@ -50,7 +50,7 @@
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
 %%% If MinionPro is not specified, use Times New Roman instead.
 \ifthenelse{\boolean{@minion}}{
-  \RequirePackage[fullfamily,opticals]{MinionPro}
+  \RequirePackage[fullfamily,opticals,footnotefigures]{MinionPro}
   \RequirePackage[scaled=0.78]{beramono}
   \RequirePackage[config=mt-pmn]{microtype}
   \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
