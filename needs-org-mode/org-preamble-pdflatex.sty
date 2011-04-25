@@ -73,6 +73,12 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
   \mkbibemph{#1}\isdot} % for books
 \DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
 
+%% bibnamedash: with Minion Pro the three-emdash lines in the
+%% bibliogrpaphy end up separated from one another, which is very
+%% annoying. Replace them with a line of appropriate size and weight.
+\renewcommand{\bibnamedash}{\rule[3.5pt]{3em}{0.5pt}}
+
+
 %% Pagestyle
 \pagestyle{kjh}
 
