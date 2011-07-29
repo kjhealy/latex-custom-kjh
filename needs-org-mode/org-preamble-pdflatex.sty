@@ -48,7 +48,7 @@
 
 %%% If \RequirePackage[minion]{org-preamble-pdflatex} is set,
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
-%%% If MinionPro is not specified, use Bitstream Charter instead.
+%%% If MinionPro is not specified, use Times instead.
 \ifthenelse{\boolean{@minion}}{
   \RequirePackage[fullfamily,opticals,footnotefigures]{MinionPro}
   \RequirePackage[toc,eqno,enum]{tabfigures}
@@ -56,7 +56,7 @@
   \RequirePackage[config=mt-pmn]{microtype}
   \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
 }{
-  \RequirePackage{charter}
+  \RequirePackage{times}
   \RequirePackage[scaled=0.74]{beramono}
   \RequirePackage[config=mt-bch]{microtype}
 }
