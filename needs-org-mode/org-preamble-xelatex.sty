@@ -40,6 +40,8 @@
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
 pdfpagelabels, bookmarksnumbered]{hyperref}
 \RequirePackage{etoolbox}
+
+%% Biblatex
 % \RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false, uniquename=false]{biblatex-chicago} % biblatex setup
 \RequirePackage[style=authoryear,
             bibstyle=authoryear,
@@ -47,7 +49,15 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
             %natbib=true,
             hyperref=true,
             backend=biber, babel=hyphen, bibencoding=inputenc]{biblatex}
-\addbibresource{socbib.bib}
+
+%% Fix biblatex's odd preference for using In: by default.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{}\intitlepunct}}}
+
+%% Basic bibliography
+\addbibresource{/Users/kjhealy/Documents/bibs/socbib.bib}
+
 %   %% these tweak the biblatex-chicago format to conform to AJS style.
    \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
    \DeclareFieldFormat[book]{title}{%
