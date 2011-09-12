@@ -2,8 +2,8 @@
 #+AUTHOR: Kieran Healy \newline /Duke University/
 #+DATE:
 #+OPTIONS: toc:nil :num nil
+#+LATEX_CLASS: memarticle
 #+LATEX_CMD: xelatex
-
 #+LATEX_HEADER: \published{Draft only. Please do not cite without permission.}
 
 #+BEGIN_LaTeX 

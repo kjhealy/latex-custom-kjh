@@ -2,6 +2,7 @@
 #+AUTHOR: Kieran Healy \newline /Duke University/
 #+DATE:
 #+OPTIONS: toc:nil :num nil
+#+LATEX_CLASS: memarticle
 #+LATEX_CMD: pdflatex
 #+LATEX_HEADER: \chapterstyle{article-4}
 #+LATEX_HEADER: \published{Draft only. Please do not cite without permission.}
