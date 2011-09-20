@@ -1,22 +1,27 @@
 %%% Some article styles and page layout tweaks for the memoir class
+%%% Choose these as article or pagestyles for your memoir document. 
 %%% Kieran Healy
 
 
-%% blank footnote
+%%% --------------------------------------------------
+%%% Some useful bits and pieces
+%%% --------------------------------------------------
+%% Blank footnote command.
 % Use \symbolfootnote[0]{Footnote text} for a blank footnote. 
-% Useful for initial acknowledgment note.
+% Useful for an initial acknowledgment note.
 \long\def\symbolfootnote[#1]#2{\begingroup%
 \def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
 
-%%% redefine \and and \andnext to remove tabular environment
-%%% needed below for custom article-styles when multiple authors are present. 
+%% Redefine \and and \andnext to remove tabular environment.
+%% Needed below for custom article-styles when multiple authors are present. 
 \renewcommand{\and}{\, }
 \renewcommand*{\andnext}{%
   \\\medskip }
 
-%%%
-%%% memo-comments
-%%%
+%%% --------------------------------------------------
+%%% Style: memo-comments
+%%% For short notes.
+%%% --------------------------------------------------
 
 % Make the style for Chapters and sections
    \makechapterstyle{memo-comments}{
@@ -52,9 +57,9 @@
     \postdate{\end{flushleft}\par\vskip 2em}
    }
 
-%%%
-%%% article-1 
-%%%
+%%% --------------------------------------------------
+%%% Style: article-1 
+%%% --------------------------------------------------
    \makechapterstyle{article-1}{
      \setsecheadstyle{\Large\scshape} 
      \setsubsecheadstyle{\normalsize\itshape} 
@@ -90,9 +95,9 @@
     \abstractrunin
    }
      
-%%%
-%%% article-2 
-%%%
+%%% --------------------------------------------------
+%%% Style: article-2 
+%%% --------------------------------------------------
 
 % Make the style for Chapters and sections
    \makechapterstyle{article-2}{
@@ -138,9 +143,9 @@
 
    }
 
-%%%
-%%% article-3 
-%%%
+%%% --------------------------------------------------
+%%% Style: article-3 
+%%% --------------------------------------------------
 
 % Make the style for Chapters and sections
    \makechapterstyle{article-3}{
@@ -194,9 +199,9 @@
 
    }     
 
-%%%
-%%% article-4 (AJS) 
-%%%
+%%% --------------------------------------------------
+%%% Style: article-4 (AJS) 
+%%% --------------------------------------------------
 
 %% Make the style for Chapters and sections
    \makechapterstyle{article-4}{
@@ -243,9 +248,9 @@
    }
 
 
-%%%
+%%% --------------------------------------------------
 %%% article-4-sans (AJS, but sans-serif headings) 
-%%%
+%%% --------------------------------------------------
 
 %% Make the style for Chapters and sections
    \makechapterstyle{article-4-sans}{
@@ -293,6 +298,10 @@
     
    }
 
+%%% --------------------------------------------------
+%%% Style: membook
+%%% A book style
+%%% --------------------------------------------------
 
 %% Make the style for Chapters and sections
    \makechapterstyle{membook}{
@@ -389,9 +398,12 @@
 
 }
 
-%%%
-%%% Custom styles for headers and footers
-%%%
+
+%%% -------------------------------------------------- 
+%%% Custom styles for headers and footers The chapterstyles above
+%%% style sections/subsections and titles, etc. These pagestyles
+%%% control the running headers and footers. So far there's just one.
+%%% --------------------------------------------------
    
 %%%
 %%% Basic 
