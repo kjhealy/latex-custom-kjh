@@ -1,32 +1,38 @@
-%
-%  Article template for use with http://kjhealy.github.com/latex-custom-kjh
-%
-% 
-%
+%%  Article template for use with http://kjhealy.github.com/latex-custom-kjh
+%% This template presumes you are using xelatex, not pdflatex
 
 
+%% The template requires the memoir class
 \documentclass[11pt,article,oneside]{memoir}
-%% Script-based version control tag (needs vc package)
-\input{vc} % comment this out if you don't use the vc package
+
+%% Script-based version control tag (requires vc package)
+% \input{vc} % comment this out if you don't use the vc package
 
 %% Required packages
 \usepackage{graphicx,url}
 \usepackage{rotating} 
-\usepackage{memoir-article-styles} % in latex-custom-kjh/needs-memoir
+\usepackage{memoir-article-styles} %% in latex-custom-kjh/needs-memoir
 
 %% Choose font system
-\usepackage{fontspec}
-\usepackage{xunicode} 
+\usepackage{fontspec} % comment out if not using xelatex
+\usepackage{xunicode} % comment out if not using xelatex
 
-%% Biblatex
+%% Biblatex: You should be using biblatex + biber instead of e.g. natbib + bibtex
+%% Comment these lines out and replace them with your own bibliographic setup if not. 
+%% Chicago support packages come with texlive 2011; biber needs to be
+%% installed separately. Get it from
+%% http://biblatex-biber.sourceforge.net/
 \usepackage[american]{babel}
 \usepackage[babel,autostyle]{csquotes}
-\usepackage[style=chicago-authordate,abbreviate=true,backend=biber]{biblatex} % chicago support packages come with texlive 2010; biber needs to be installed separately. Get it from http://biblatex-biber.sourceforge.net/     
+\usepackage[style=chicago-authordate,abbreviate=true,backend=biber]{biblatex}  
 
-%% Your bibliography file or files go here. Biblatex allows for multiple \addbibresource{} statements.
+%% Your bibliography file or files go here. Biblatex allows for
+%% multiple \addbibresource{} statements. If using bibtex you must use
+%% the older \bibliography{} declaration instead
 \addbibresource{socbib.bib}    % http://kjhealy.github.com/socbibs/
 
-%% Some formatting tweaks to biblatex-chicago to bring.
+%% Some formatting tweaks to biblatex-chicago. Comment out if not
+%% using this biblatex style.
 
 %% Enclose article titles in quotes (this puts article titles in Title Case as well)
 \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
@@ -36,7 +42,7 @@
   \mkbibemph{#1}\isdot} % for books
 \DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
 
-%% Name, Title, Affiliation, Contact
+%% Name, Title, Affiliation, Contact. Change as needed.
 \def\myaffiliation{Duke University}
 \def\myauthor{Kieran Healy}
 \def\myemail{\small{\texttt{\href{mailto:kjhealy@soc.duke.edu}{kjhealy@soc.duke.edu}}}}
@@ -44,7 +50,7 @@
 \def\mykeywords{Kieran, Healy, Kieran Healy, Sociology}
 
 
-%% Links
+%% Hyperlinks
 \usepackage[usenames,dvipsnames]{color}                     
 \usepackage[xetex, 
 	colorlinks=true,
@@ -62,7 +68,9 @@
 \begin{document} 
 
 %%% xelatex font choices
-%% You will need to buy these fonts or change the names to fonts you own.
+%% You will need to buy these fonts or change the names to fonts you
+%% own, or comment out altogether if using pdflatex instead of
+%% xelatex.
 \setromanfont[Mapping=tex-text,Numbers=OldStyle]{Old Style 7 Std} 
 \setsansfont[Mapping=tex-text]{Old Style 7 Std}  
 \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{PragmataPro} 
@@ -70,8 +78,9 @@
 % Make figures as wide as the margins
 \setkeys{Gin}{width=1\textwidth} 
 
-%% Layout and styling               
-\chapterstyle{article-4}  % alternative styles defined in latex-custom-kjh/needs-memoir/
+%% Layout and styling: this style is defined in defined in
+%% latex-custom-kjh/needs-memoir/, along with several alternatives.
+\chapterstyle{article-4}  
 
 \pagestyle{kjh}
 
@@ -106,7 +115,7 @@
 
 \section{Introduction}
 
-% bibliography
+%% Bibliography. If you are not using biblatex, comment out this line. 
 \printbibliography
 
 \end{document}
