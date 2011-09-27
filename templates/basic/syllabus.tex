@@ -3,24 +3,34 @@
 %
 \documentclass[11pt,article,oneside]{memoir}
 
-% Script-based version control (needs vc package)
-\input{vc}     
+%% Script-based version control (requires vc package)
+% \input{vc}     
 
 \usepackage{graphicx,url}
 \usepackage{rotating}        
 \usepackage{memoir-article-styles} % in latex-custom-kjh/needs-memoir    
 
-%% Choose font system
-%% Open Type Font Support!
+%% Choose font system. Comment out these lines if you are not using xelatex
 \usepackage{fontspec}
 \usepackage{xunicode} 
 
 % Biblatex
 \usepackage[american]{babel}
 \usepackage[babel]{csquotes}
-\usepackage[style=authoryear]{biblatex}  % in latex-custom-kjh/needs-biblatex       
-\bibliography{socbib} % http://kjhealy.github.com/socbibs/   
+\usepackage[style=authoryear,
+            bibstyle=authoryear,
+            citestyle=authoryear-comp,
+            uniquename=false,
+            hyperref=true,
+            backend=biber, babel=hyphen, bibencoding=inputenc]{biblatex}
 
+%% Fix biblatex's odd preference for using In: by default.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{}\intitlepunct}}}
+
+%% Bibliography from http://kjhealy.github.com/socbibs/   
+\addbibresource{/Users/kjhealy/Documents/bibs/socbib.bib}
 
 % Definitions
 \def\myauthor{Kieran Healy}
@@ -76,10 +86,10 @@
 %%% xelatex font choices
 %\defaultfontfeatures{}
 %\defaultfontfeatures{Scale=MatchLowercase}    
-% You will need to buy these fonts or change the names to fonts you own.      
+% You will need to buy these fonts, change the names to fonts you own, or comment out if not using xelatex.      
 \setromanfont[Mapping=tex-text]{Minion Pro} 
 \setsansfont[Mapping=tex-text]{Myriad Pro} 
-\setmonofont[Mapping=tex-tex`t,Scale=0.8]{Pragmata} 
+\setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata} 
 
 %% blank label items; hanging bibs for text
 %% Custom hanging indent for vita items
@@ -90,8 +100,7 @@
 % Make figures as wide as the margins
 \setkeys{Gin}{width=1\textwidth} 
 
-%% RCS info string for version tracking
-\chapterstyle{article-2}   % alternative styles defined in latex-custom-kjh/needs-memoir/      
+\chapterstyle{article-2}   % alternative styles are defined in latex-custom-kjh/needs-memoir/. Consider e.g.\chapterstyle{article-4}
 \pagestyle{kjh} 
   
 \title{\mytitle}     
@@ -102,8 +111,8 @@
 
 \maketitle
 
-% Include version information in footer. 
-\thispagestyle{kjhgit}
+% Include version information in footer if using vc package (see above). 
+% \thispagestyle{kjhgit}
 
 
 % Copyright Page
@@ -117,7 +126,7 @@
 \section{Course Description and Objectives}
 
 %\newpage
-% Bibliography
+%% Uncomment if you want a printed bibliography.
 %\printbibliography 
 
 \end{document}
