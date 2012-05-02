@@ -51,14 +51,14 @@
 %%% If MinionPro is not specified, use Times instead.
 \ifthenelse{\boolean{@minion}}{
   \RequirePackage[fullfamily,opticals,footnotefigures]{MinionPro}
-  \RequirePackage[toc,eqno,enum]{tabfigures}
   \RequirePackage[scaled=0.78]{beramono}
-  \RequirePackage[config=mt-pmn]{microtype}
+  \RequirePackage{microtype}
+  \RequirePackage[toc,eqno,enum]{tabfigures}
   \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
 }{
   \RequirePackage{times}
+  \RequirePackage[config=mt-ptm]{microtype}
   \RequirePackage[scaled=0.74]{beramono}
-  \RequirePackage[config=mt-bch]{microtype}
 }
 
 
