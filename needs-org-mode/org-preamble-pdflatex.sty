@@ -76,10 +76,6 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
             hyperref=true,
             backend=biber, babel=hyphen, bibencoding=inputenc]{biblatex}
 
-%% Fix biblatex's odd preference for using In: by default.
-\renewbibmacro{in:}{%
-  \ifentrytype{article}{}{%
-  \printtext{\bibstring{}\intitlepunct}}}
 
 %% Basic bibliography
 \addbibresource{/Users/kjhealy/Documents/bibs/socbib.bib}
