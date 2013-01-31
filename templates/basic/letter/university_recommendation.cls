@@ -32,7 +32,7 @@
   \renewcommand{\@oddhead} {\parbox{\textwidth}{Healy letter for
       \emph{\toname}\hfill\@date\hfill\pagename{}
       \thepage\\\rule[3pt]{\textwidth}{1pt}}}
-  \renewcommand{\@oddfoot}{\sffamily\tiny 268 Sociology/Psychology
+  \renewcommand{\@oddfoot}{\sffamily\tiny 255 Sociology/Psychology
     Building, Duke University, Durham, North Carolina 27708,
     USA. Phone: \myphone \,Fax: \myfax.}
   \renewcommand{\@evenhead}{\@oddhead}

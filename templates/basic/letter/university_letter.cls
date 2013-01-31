@@ -11,7 +11,7 @@
 \RequirePackage{xunicode}
 %% Garamond 3 and Interstate are the official Duke brand typefaces.
 %% See
-\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Garamond 3 LT Std} 
+\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Garamond Premier Pro} 
 \setsansfont[Mapping=tex-text]{Interstate}  
 \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{PragmataPro} 
 
