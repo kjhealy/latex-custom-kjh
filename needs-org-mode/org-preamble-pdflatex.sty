@@ -49,11 +49,12 @@
 %%% If \RequirePackage[minion]{org-preamble-pdflatex} is set,
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
 %%% If MinionPro is not specified, use Times instead.
+%%% See the MinionPro.sty manual for details on the MinionPro and tabfigures options.
 \ifthenelse{\boolean{@minion}}{
   \RequirePackage[fullfamily,opticals,footnotefigures]{MinionPro}
   \RequirePackage[scaled=0.78]{beramono}
   \RequirePackage{microtype}
-  \RequirePackage[toc,eqno,enum]{tabfigures}
+  \RequirePackage[toc,eqno,enum]{tabfigures} %% use tabular figures in tables, toc, equations
   \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
 }{
   \RequirePackage{times}
