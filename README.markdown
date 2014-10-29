@@ -28,5 +28,7 @@ The .sty files in the needs-org-mode directory are meant for use with org-mode a
 
 Of course, not all of these packages are needed to use each of the layouts. Only a modern TeX system is really presupposed.
 
+To use these files, the various `.sty` files need to be installed somewhere LaTeX can find them, usually in your local `texmf` tree, wherever that is (e.g. `~/Library/texmf/tex/latex` or `/usr/local/texlive/texmf-local`). Consult your TeX installation's documentation for further details.
+
 Feel free to extend and improve as you like. 
 
