@@ -1,95 +1,53 @@
-%
-%  Syllabus template for use with http://kjhealy.github.com/latex-custom-kjh
-%
+%%%
+%%%  Syllabus template for use with style files at http://kjhealy.github.com/latex-custom-kjh
+%%%  Kieran Healy
+
 \documentclass[11pt,article,oneside]{memoir}
+
+%%% custom style file with standard settings for xelatex and biblatex. Note that when [minion] is present, we assume you have minion pro installed for use with pdflatex.
+\usepackage[minion]{org-preamble-pdflatex} 
+
+%%% alternatively, use xelatex instead
+% \usepackage{org-preamble-xelatex} 
+
 
 %% Script-based version control (requires vc package)
 % \input{vc}     
 
-\usepackage{graphicx,url}
-\usepackage{rotating}        
-\usepackage{memoir-article-styles} % in latex-custom-kjh/needs-memoir    
-
-%% Choose font system. Comment out these lines if you are not using xelatex
-\usepackage{fontspec}
-\usepackage{xunicode} 
-
-% Biblatex
-\usepackage[american]{babel}
-\usepackage[babel]{csquotes}
-\usepackage[style=authoryear,
-            bibstyle=authoryear,
-            citestyle=authoryear-comp,
-            uniquename=false,
-            hyperref=true,
-            backend=biber, babel=hyphen, bibencoding=inputenc]{biblatex}
-
-%% Fix biblatex's odd preference for using In: by default.
-\renewbibmacro{in:}{%
-  \ifentrytype{article}{}{%
-  \printtext{\bibstring{}\intitlepunct}}}
-
-%% Bibliography from http://kjhealy.github.com/socbibs/   
-\addbibresource{/Users/kjhealy/Documents/bibs/socbib.bib}
-
 % Definitions
-\def\myauthor{Kieran Healy}
-\def\mytitle{Sociology 155: Organizations and Management}
-\def\mysubtitle{Syllabus}
+\def\myauthor{Author}
+\def\mytitle{Title}
 \def\mycopyright{\myauthor}
 \def\mykeywords{}
 \def\mybibliostyle{plain}
 \def\mybibliocommand{}
 \def\mysubtitle{}
+\def\myaffiliation{Duke University}
 \def\myaddress{276 Soc/Psych}
 \def\myemail{kjhealy@soc.duke.edu}
 \def\myweb{http://www.kieranhealy.org}
 \def\myphone{660-5737}
+\def\myversion{}
+\def\myrevision{}
+
+
 \def\myaffiliation{\ \\Duke University}
-\def\mykeywords{Sociology, Syllabus, Undergraduate, Organizations, Management}
+\def\myauthor{Kieran Healy}
+\def\mykeywords{Sociology, Syllabus, Graduate, Sociology, Theory}
+\def\mysubtitle{Syllabus}
+\def\mytitle{{\normalsize \textsc{sociol} 711\newline} \HUGE Contemporary Sociological Theory}
 
-%% Links
-\usepackage[usenames,dvipsnames]{color}                     
-\usepackage[xetex, 
-	colorlinks=true,
-	urlcolor=BrickRed,
-	plainpages=false,
-  	pdfpagelabels, 
-  	bookmarksnumbered,
-  	pdftitle={\mytitle},
-  	pdfauthor={\myauthor},
-  	pdfkeywords={\mykeywords}
-  	]{hyperref}   
-
-%% Uncomment to make a "DRAFT" watermark  
-% Page watermark
-% \usepackage{type1cm,eso-pic}
-% \makeatletter
-% \AddToShipoutPicture{%
-% \setlength{\@tempdimb}{.5\paperwidth}%
-% \setlength{\@tempdimc}{.5\paperheight}%
-% \setlength{\unitlength}{1pt}%
-% \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
-% \makebox(0,0){\rotatebox{45}{\textcolor[gray]{0.9}%
-% {\fontsize{3cm}{3cm}\selectfont{Draft Only}}}}%  
-% Marginal Watermark
-% \makebox(-100,-300){\rotatebox{45}{\textcolor[gray]{0.95}%
-% {\fontsize{2cm}{2cm}\selectfont{}}}}
-% \makebox(-500,-0){\rotatebox{90}{\textcolor[gray]{0.95}%
-% {\fontsize{0.7cm}{0.7cm}\selectfont{}}}}
-% }%
-% }
-% \makeatother
 
 \begin{document}
 
+%%% If using xelatex and not pdflatex
 %%% xelatex font choices
 %\defaultfontfeatures{}
 %\defaultfontfeatures{Scale=MatchLowercase}    
 % You will need to buy these fonts, change the names to fonts you own, or comment out if not using xelatex.      
-\setromanfont[Mapping=tex-text]{Minion Pro} 
-\setsansfont[Mapping=tex-text]{Myriad Pro} 
-\setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata} 
+% \setromanfont[Mapping=tex-text]{Minion Pro} 
+% \setsansfont[Mapping=tex-text]{Myriad Pro} 
+% \setmonofont[Mapping=tex-text,Scale=0.8]{Pragmata} 
 
 %% blank label items; hanging bibs for text
 %% Custom hanging indent for vita items
@@ -97,23 +55,20 @@
 \def\labelitemi{$\cdot$}
 %\renewcommand{\labelitemii}{~}
 
-% Make figures as wide as the margins
-\setkeys{Gin}{width=1\textwidth} 
+%% RCS info string for version tracking
+\chapterstyle{article-4}  % alternative styles are defined in latex-custom-kjh/needs-memoir/
+% \pagestyle{kjh}
 
-\chapterstyle{article-2}   % alternative styles are defined in latex-custom-kjh/needs-memoir/. Consider e.g.\chapterstyle{article-4}
-\pagestyle{kjh} 
-  
-\title{\mytitle}     
-\author{\myauthor\smallskip\footnotesize\newline Office: 276 Sociology/Psychology \newline\texttt{\myemail} \newline \url{http://www.kieranhealy.org}}
-\date{}
+\title{\LARGE \mytitle}     
+\author{\Large\myauthor \newline \footnotesize\texttt{\noindent\myemail}}
+\date{Spring 2014. Sociology/Psychology 329.\newline Weds 10:05am--12:35pm.}
 
-\published{\sffamily Spring 2010 / Tu\&Th 1:15--2:30pm / Gray 228}
+\published{\,}
 
 \maketitle
 
 % Include version information in footer if using vc package (see above). 
-% \thispagestyle{kjhgit}
-
+\thispagestyle{kjhgit}
 
 % Copyright Page
 % \textcopyright{} \mycopyright
