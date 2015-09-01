@@ -298,6 +298,58 @@
     
    }
 
+
+%%% --------------------------------------------------
+%%% Style: article-5 (Bold main heads)
+%%% Requires xelatex defs in .tex file
+%%% --------------------------------------------------
+
+%% Make the style for Chapters and sections
+   \makechapterstyle{article-5}{
+    \setsecheadstyle{\Large\secfont} 
+    \setsubsecheadstyle{\normalsize\itshape} 
+	\setaftersubsubsecskip{-1em}
+    \setsubsubsecheadstyle{\small\bfseries}
+    \renewcommand{\printchaptername}{} 
+    \renewcommand{\chapternamenum}{} 
+    \renewcommand{\chapnumfont}{\chaptitlefont} 
+    \renewcommand{\printchapternum}{\chapnumfont \thechapter\space} 
+    \renewcommand{\afterchapternum}{} 
+    \renewcommand{\printchaptername}{\secheadstyle}
+    \renewcommand{\cftchapterfont}{\normalfont} 
+    \renewcommand{\cftchapterpagefont}{\normalfont\textbf} 
+    \renewcommand{\cftchapterpresnum}{\textbf} 
+    %\renewcommand{\cftchapterleader}{} 
+    %\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+    \captiontitlefont{\small}
+    %\settocdepth{chapter}
+    \maxsecnumdepth{chapter} 
+    \setsecnumdepth{chapter}
+
+    % reduce skip after section heading
+    \setaftersecskip{1.7ex}
+    
+    % set name of bibliography to 'references'
+    %\renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
+
+    % % Title flush left
+    \pretitle{\par\vskip 3em 
+        \begin{flushleft}\LARGE\bfseries}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+    \preauthor{\begin{flushleft}\normalsize\bigskip}
+    \postauthor{\end{flushleft}}
+    \predate{\begin{flushleft}\normalsize}
+    \postdate{\end{flushleft}}
+
+    % 'abstract' bigger skip from title
+    \addto\captionsamerican{\renewcommand{\abstractname}{}}
+    \renewcommand{\abstractname}{}
+    \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+    \abstractrunin
+   }
+
+
+
 %%% --------------------------------------------------
 %%% Style: membook
 %%% A book style

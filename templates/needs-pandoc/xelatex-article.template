@@ -97,7 +97,7 @@ $endif$
 \chapterstyle{article-4} 
 \pagestyle{kjh}
 
-\published{Incomplete Draft. Please do not cite without permission.}
+\published{}
 
 $if(title)$
 \maketitle

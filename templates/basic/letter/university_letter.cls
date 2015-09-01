@@ -9,11 +9,6 @@
 \RequirePackage{ifthen}
 \RequirePackage{fontspec}
 \RequirePackage{xunicode}
-%% Garamond 3 and Interstate are the official Duke brand typefaces.
-%% See
-\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Garamond Premier Pro} 
-\setsansfont[Mapping=tex-text]{Interstate}  
-\setmonofont[Mapping=tex-text,Scale=MatchLowercase]{PragmataPro} 
 
 \newboolean{@sign}
 
@@ -49,7 +44,7 @@
 
 \sbox{\universitylogo}{\parbox{\textwidth}{
     \begin{tabular}{l}
-     \includegraphics[scale=0.55]{/Users/kjhealy/Documents/projects/letterhead/logos/sociologydept.pdf}
+     \includegraphics[scale=0.55]{/Users/kjhealy/Documents/letterhead/logos/sociologydept.pdf}
    \end{tabular}}}
 		
 \sbox{\tsheader}{\parbox[b]{\textwidth}{\usebox{\universitylogo}\raisebox{0cm}}}
@@ -71,17 +66,17 @@
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
       \myphone \,Fax: \myfax.}} \providecommand{\@oddfoot}{}
 
-\pagestyle{headings}
+%\pagestyle{headings}
 
 
 \renewcommand{\closing}[1]{
 	\hspace*{4cm}
 	\parbox{\textwidth}{
 	\ifthenelse{\equal{#1}{}}{}{#1\\}
-	\ifthenelse{\boolean{@sign}}{\includegraphics[width=5cm]{/Users/kjhealy/Documents/projects/letterhead/sigs/signature}\\}{\bigskip \bigskip \bigskip \bigskip \bigskip \ifthenelse{\equal{#1}{}}{}{{ }\\}}	
+	\ifthenelse{\boolean{@sign}}{}{\bigskip \bigskip \bigskip \bigskip \bigskip \ifthenelse{\equal{#1}{}}{}{{ }\\}}	
 	\raggedright \fromsig}}
 
 \signature{
-	Associate Professor in Sociology\\ and the Kenan Institute for Ethics
+	Associate Professor of Sociology\\
 	\\\url{kjhealy@soc.duke.edu}}
 	
