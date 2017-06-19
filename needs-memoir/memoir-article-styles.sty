@@ -353,6 +353,60 @@
    }
 
 
+%%% --------------------------------------------------
+%%% Style: article-6 (bookdown) 
+%%% --------------------------------------------------
+
+%% For bookdown ``books'' that you want typeset as articles.
+%% Make the style for Chapters and sections
+   \makechapterstyle{article-6}{
+     \setsecheadstyle{\normalsize\itshape} 
+     \setaftersubsubsecskip{-1em}
+     \setsubsubsecheadstyle{\small\bfseries}
+     \renewcommand{\printchaptername}{}
+     \renewcommand{\printchaptertitle}[1]{%
+       \raggedright\Large\scshape\MakeLowercase{##1}}
+     \renewcommand{\chapternamenum}{}
+     \renewcommand{\chapnumfont}{\chaptitlefont}
+     \renewcommand{\chaptitlefont}{\normalfont} 
+     \renewcommand{\printchapternum}{} 
+     \renewcommand{\afterchapternum}{} 
+     \renewcommand{\printchaptername}{\normalfont}
+     \renewcommand{\cftchapterfont}{\normalfont} 
+     \renewcommand{\cftchapterpagefont}{\normalfont\scshape} 
+     \renewcommand{\cftchapterpresnum}{\scshape} 
+     % \renewcommand{\cftchapterleader}{} 
+     % \renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+     \captiontitlefont{\small}
+     % \settocdepth{chapter}
+     \maxsecnumdepth{chapter} 
+     \setsecnumdepth{chapter}
+
+     % reduce skip after chapter and section headings
+     \renewcommand{\afterchapskip}{1.7ex}
+     \renewcommand{\beforechapskip}{1.7ex}
+
+     \setaftersecskip{1.7ex}
+     
+     % set name of bibliography to 'references'
+     % \renewcommand{\bibname}{\mdseries\Large\scshape\MakeLowercase References}
+
+     % % Title flush left
+     \pretitle{\par\vskip 3em 
+       \begin{flushleft}\LARGE\bfseries}
+       \posttitle{\end{flushleft}\par\vskip 0.5em}
+     \preauthor{\begin{flushleft}\normalsize\bigskip}
+       \postauthor{\end{flushleft}}
+     \predate{\begin{flushleft}\normalsize}
+       \postdate{\end{flushleft}}
+
+     % 'abstract' bigger skip from title
+     \addto\captionsamerican{\renewcommand{\abstractname}{}}
+     \renewcommand{\abstractname}{}
+     \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+     \abstractrunin
+   }
+
 
 %%% --------------------------------------------------
 %%% Style: membook
