@@ -1,0 +1,52 @@
+%%
+%% This file contains local modifications to the Tufte-LaTeX document classes.
+%%
+
+\renewcommand\normalsize{%
+    \@setfontsize\normalsize\@xipt{13.6}%
+    \abovedisplayskip 11\p@ \@plus3\p@ \@minus6\p@
+    \abovedisplayshortskip \z@ \@plus3\p@
+    \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
+    \belowdisplayskip \abovedisplayskip
+    \let\@listi\@listI}
+\normalsize
+\renewcommand\small{%
+    \@setfontsize\small\@xpt\@xiipt
+    \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
+    \abovedisplayshortskip \z@ \@plus3\p@
+    \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+    \def\@listi{\leftmargin\leftmargini
+        \topsep 6\p@ \@plus2\p@ \@minus2\p@
+        \parsep 3\p@ \@plus2\p@ \@minus\p@
+        \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
+}
+\renewcommand\footnotesize{%
+    \@setfontsize\footnotesize\@ixpt{11}%
+    \abovedisplayskip 8\p@ \@plus2\p@ \@minus4\p@
+    \abovedisplayshortskip \z@ \@plus\p@
+    \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+    \def\@listi{\leftmargin\leftmargini
+        \topsep 4\p@ \@plus2\p@ \@minus2\p@
+        \parsep 2\p@ \@plus\p@ \@minus\p@
+        \itemsep \parsep}%
+    \belowdisplayskip \abovedisplayskip
+}
+\renewcommand\scriptsize{\@setfontsize\scriptsize\@viiipt{9.5}}
+\renewcommand\tiny{\@setfontsize\tiny\@vipt\@viipt}
+\renewcommand\large{\@setfontsize\large\@xiipt{14}}
+\renewcommand\Large{\@setfontsize\Large\@xivpt{18}}
+\renewcommand\LARGE{\@setfontsize\LARGE\@xviipt{22}}
+\renewcommand\huge{\@setfontsize\huge\@xxpt{25}}
+\renewcommand\Huge{\@setfontsize\Huge\@xxvpt{30}}
+
+\setlength\leftmargini   {1pc}
+\setlength\leftmarginii  {1pc}
+\setlength\leftmarginiii {1pc}
+\setlength\leftmarginiv  {1pc}
+\setlength\leftmarginv   {1pc}
+\setlength\leftmarginvi  {1pc}
+\setlength\labelsep      {.5pc}
+\setlength\labelwidth    {\leftmargini}
+\addtolength\labelwidth{-\labelsep}
+%%
