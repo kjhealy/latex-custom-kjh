@@ -50,3 +50,108 @@
 \setlength\labelwidth    {\leftmargini}
 \addtolength\labelwidth{-\labelsep}
 %%
+
+
+
+%%
+% Make Tuftian-style section headings and TOC formatting
+
+\titleformat{\chapter}%
+  [display]% shape
+  {\relax\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\begin{fullwidth}}{}}% format applied to label+text
+  {\itshape\huge\thechapter}% label
+  {0pt}% horizontal separation between label and title body
+  {\huge\rmfamily\itshape}% before the title body
+  [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]% after the title body
+
+\titleformat{\section}%
+  [hang]% shape
+  {\normalfont\Large\itshape}% format applied to label+text
+  {\thesection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\subsection}%
+  [hang]% shape
+  {\normalfont\large\itshape}% format applied to label+text
+  {\thesubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titleformat{\paragraph}%
+  [runin]% shape
+  {\normalfont\itshape}% format applied to label+text
+  {\theparagraph}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus.2ex}
+
+% Subsubsection and following section headings shouldn't be used.
+% See Bringhurst's _The Elements of Typography_, section 4.2.2.
+\renewcommand\subsubsection{%
+  \@tufte@error{\string\subsubsection is undefined by this class.
+    See Robert Bringhurst's _The Elements of 
+    Typographic Style_, section 4.2.2.
+    \string\subsubsection was used}
+    {From Bringhurst's _The Elements of Typographic Style_, section 4.2.2: Use as 
+    many levels of headings as you need, no more and no fewer.  Also see the many 
+    related threads on Ask E.T. at http://www.edwardtufte.com/.}
+}
+
+\renewcommand\subparagraph{%
+  \@tufte@error{\string\subparagraph is undefined by this class.%
+    See Robert Bringhurst's _The Elements of 
+    Typographic Style_, section 4.2.2.
+    \string\subparagraph was used}
+    {From Bringhurst's _The Elements of Typographic Style_, section 4.2.2: Use as 
+    many levels of headings as you need, no more and no fewer.  Also see the many 
+    related threads on Ask E.T. at http://www.edwardtufte.com/.}
+}
+
+
+% Define a pagefigure environment for full-width figures whose caption is not in the margin, but instead has a long line, just like a regular latex book figure.
+% https://tex.stackexchange.com/questions/57413/change-caption-in-tufte-class-full-page-figure
+% https://tex.stackexchange.com/questions/229308/combining-tufte-latex-and-threeparttable/229419#229419
+ 
+\RequirePackage{etoolbox}
+\newif\if@tufte@margtab\@tufte@margtabfalse
+\AtBeginEnvironment{margintable}{\@tufte@margtabtrue}
+\AtEndEnvironment{margintable}{\@tufte@margtabfalse}
+\newcommand{\classiccaptionstyle}{%
+    \long\def\@caption##1[##2]##3{%
+        \par
+        \addcontentsline{\csname ext@##1\endcsname}{##1}%
+        {\protect\numberline{\csname the##1\endcsname}{\ignorespaces ##2}}%
+        \begingroup
+        \@parboxrestore
+        \if@minipage
+        \@setminipage
+        \fi
+        \normalsize
+        \@makecaption{\csname fnum@##1\endcsname}{\ignorespaces ##3}\par
+        \endgroup}
+    \long\def\@makecaption##1##2{%
+        \vskip\abovecaptionskip
+        \sbox\@tempboxa{\@tufte@caption@font##1: ##2}%
+        \ifdim \wd\@tempboxa >\hsize
+        \@tufte@caption@font\if@tufte@margtab\@tufte@caption@justification\fi##1: ##2\par
+        \else
+        \global \@minipagefalse
+        \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+        \fi
+        \vskip\belowcaptionskip}
+    %   \setcaptionfont{\normalfont}
+    \let\caption\@tufte@orig@caption%
+    \let\label\@tufte@orig@label}
+
+\newenvironment{pagefigure}{%
+    \begin{figure*}[htbp]
+    \classiccaptionstyle
+  }{\end{figure*}}
+
