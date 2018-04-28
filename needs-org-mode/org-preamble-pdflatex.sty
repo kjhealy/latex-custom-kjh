@@ -20,18 +20,32 @@
 
 \RequirePackage{ifthen}
 \newboolean{@minion}
+\newboolean{@sanshead}
 \newboolean{@minted}
+\newboolean{@listings}
 
 \setboolean{@minion}{false} % minion is off by default
+\setboolean{@sanshead}{false} % sans headers are off by default
 \setboolean{@minted}{false} % minted is off by default
+\setboolean{@listings}{false} % listings is off by default
 
 \DeclareOption{minion}{
   \setboolean{@minion}{true}
 }
 
+\DeclareOption{sanshead}{
+  \setboolean{@sanshead}{true}
+}
+
 \DeclareOption{minted}{
   \setboolean{@minted}{true}
 }
+
+\DeclareOption{listings}{
+  \setboolean{@listings}{true}
+}
+
+
 
 \ProcessOptions
 
@@ -45,6 +59,19 @@
 \RequirePackage[babel]{csquotes}
 \RequirePackage[svgnames]{xcolor}
 \RequirePackage{soul}
+
+\RequirePackage{color}
+ \definecolor{thered}    {rgb} {0.65,0.04,0.07}
+ \definecolor{thegreen}  {rgb} {0.06,0.44,0.08}
+ \definecolor{theblue}   {rgb} {0.02,0.04,0.48}
+ \definecolor{sectioning}{gray}{0.44}
+ \definecolor{thegrey}   {gray}{0.5}
+ \definecolor{theframe}  {gray}{0.75}
+ \definecolor{theshade}  {gray}{0.94}
+
+\def\MacroFont{\ttfamily\small}
+\def\AltMacroFont{\ttfamily\footnotesize}
+ 
 
 %%% If \RequirePackage[minion]{org-preamble-pdflatex} is set,
 %%% MinionPro and microtype setup (requires full installation of MinionPro font)
@@ -62,6 +89,12 @@
   \RequirePackage[scaled=0.74]{beramono}
 }
 
+
+\ifthenelse{\boolean{@sanshead}}{
+  \def\sfdefault{SourceSansPro-TLF}
+  \def\SourceSansPro@scale{1.02}
+  \def\bfdefault{b}
+}{}
 
 \RequirePackage[colorlinks=true, urlcolor=DarkSlateBlue,
 citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
@@ -104,5 +137,21 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
   \definecolor{bg}{rgb}{0.95,0.95,0.95}
   \setkeys{Gin}{width=1\@textwidth} 
 }{}
+
+
+%% If [listings] option is chosen, activated listings
+\ifthenelse{\boolean{@listings}}{
+ \RequirePackage{listings}
+ \lstset{
+   gobble=0,columns=flexible,keepspaces,upquote,escapechar=",
+   basicstyle=\AltMacroFont,
+   keywordstyle=[0]\color{thegreen},
+   keywordstyle=[1]\color{thered},
+   comment=[l]\%,
+   commentstyle=\color{thegrey}\itshape,
+   alsoother={0123456789_},
+   frame=single,backgroundcolor=\color{theshade},rulecolor=\color{theframe},
+   framerule=\fboxrule,xleftmargin=3.4pt,xrightmargin=3.4pt,belowskip=\smallskipamount
+ }}{}
 
 \endinput
