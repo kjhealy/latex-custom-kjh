@@ -1,0 +1,157 @@
+%% Preamble/settings for documents exported from .org files to .tex files when the 
+%% tex engine is pdflatex.
+%%
+%% Usage: \usepackage{rmd-preamble-pdflatex} in your document
+%% preamble. \usepackage[minion]{rmd-preamble-pdflatex}
+%% activates the MinionPro package instead of Times New Roman. The
+%% actual Minion Pro font files must be installed first, in accordance
+%% with the instructions in the MinionPro package.
+
+%% \usepackage[minted]{rmd-preamble-xelatex} activates the minted
+%% package for code highlighting. Minted requires that pygments be
+%% installed (http://pygments.org/) and that \write18 support be
+%% enabled in your tex compiler.
+
+%% Kieran Healy
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{org-preamble-pdflatex}[2011/02/21 v0.01 Bundling of Preamble items for Rmd to pdfLaTeX export (including MinionPro), via pandoc]
+
+\RequirePackage{ifthen}
+\newboolean{@minion}
+\newboolean{@sanshead}
+\newboolean{@minted}
+\newboolean{@listings}
+
+\setboolean{@minion}{false} % minion is off by default
+\setboolean{@sanshead}{false} % sans headers are off by default
+\setboolean{@minted}{false} % minted is off by default
+\setboolean{@listings}{false} % listings is off by default
+
+\DeclareOption{minion}{
+  \setboolean{@minion}{true}
+}
+
+\DeclareOption{sanshead}{
+  \setboolean{@sanshead}{true}
+}
+
+\DeclareOption{minted}{
+  \setboolean{@minted}{true}
+}
+
+\DeclareOption{listings}{
+  \setboolean{@listings}{true}
+}
+
+
+
+\ProcessOptions
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+%\RequirePackage{fixltx2e}
+\RequirePackage{wrapfig}
+\RequirePackage{rotating}
+\RequirePackage{memoir-article-styles}
+\RequirePackage[american]{babel}
+\RequirePackage[babel]{csquotes}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{soul}
+
+\RequirePackage{color}
+ \definecolor{thered}    {rgb} {0.65,0.04,0.07}
+ \definecolor{thegreen}  {rgb} {0.06,0.44,0.08}
+ \definecolor{theblue}   {rgb} {0.02,0.04,0.48}
+ \definecolor{sectioning}{gray}{0.44}
+ \definecolor{thegrey}   {gray}{0.5}
+ \definecolor{theframe}  {gray}{0.75}
+ \definecolor{theshade}  {gray}{0.94}
+
+\def\MacroFont{\ttfamily\small}
+\def\AltMacroFont{\ttfamily\footnotesize}
+ 
+
+%%% If \RequirePackage[minion]{org-preamble-pdflatex} is set,
+%%% MinionPro and microtype setup (requires full installation of MinionPro font)
+%%% If MinionPro is not specified, use Times instead.
+%%% See the MinionPro.sty manual for details on the MinionPro and tabfigures options.
+\ifthenelse{\boolean{@minion}}{
+  \RequirePackage[fullfamily,opticals,footnotefigures]{MinionPro}
+  \RequirePackage[scaled=0.7]{beramono}
+  \RequirePackage{microtype}
+  \RequirePackage[toc,eqno,enum]{tabfigures} %% use tabular figures in tables, toc, equations
+  \renewcommand{\scdefault}{ssc} %% nicer small-caps headings  
+}{
+  \RequirePackage{times}
+  \RequirePackage[config=mt-ptm]{microtype}
+  \RequirePackage[scaled=0.74]{beramono}
+}
+
+
+\ifthenelse{\boolean{@sanshead}}{
+  \def\sfdefault{SourceSansPro-TLF}
+  \def\SourceSansPro@scale{1.02}
+  \def\bfdefault{b}
+}{}
+
+\RequirePackage[colorlinks=true, urlcolor=DarkSlateBlue, linkcolor=DarkSlateBlue, 
+citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
+pdfpagelabels, bookmarksnumbered]{hyperref}
+\RequirePackage{etoolbox}
+
+%% Biblatex stuff is handled by pandoc and pandoc-citeproc
+%% \RequirePackage[authordate, backend=biber, babel=hyphen, bibencoding=inputenc, strict, isbn=false, uniquename=false]{biblatex-chicago} % biblatex setup
+% \RequirePackage[style=authoryear,
+%             bibstyle=authoryear,
+%             citestyle=authoryear-comp,
+%             uniquename=false,
+%             hyperref=true,
+%             backend=biber, babel=hyphen, bibencoding=inputenc]{biblatex}
+
+
+%% Basic bibliography
+%% \addbibresource{/Users/kjhealy/Documents/bibs/socbib.bib}
+%% \addbibresource{/Users/kjhealy/Documents/bibs/socbib-pandoc.bib}
+
+
+  %% these tweak the biblatex-chicago format to conform to AJS style.
+%%  \DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
+%%  \DeclareFieldFormat[book]{title}{%
+%%  \mkbibemph{#1}\isdot} % for books
+%% \DeclareFieldFormat{booktitle}{\mkbibemph{#1}} % for edited volumes
+
+%% bibnamedash: with Minion Pro the three-emdash lines in the
+%% bibliogrpaphy end up separated from one another, which is very
+%% annoying. Replace them with a line of appropriate size and weight.
+%% \renewcommand{\bibnamedash}{\rule[3.5pt]{3em}{0.5pt}\,}
+
+%% Pagestyle
+\pagestyle{kjh}
+
+%% If [minted] option is chosen, activate minted
+\ifthenelse{\boolean{@minted}}{
+  \RequirePackage{minted}
+  \usemintedstyle{tango} 
+  \definecolor{bg}{rgb}{0.95,0.95,0.95}
+  \setkeys{Gin}{width=1\@textwidth} 
+}{}
+
+
+%% If [listings] option is chosen, activated listings
+\ifthenelse{\boolean{@listings}}{
+ \RequirePackage{listings}
+ \lstset{
+   gobble=0,columns=flexible,keepspaces,upquote,escapechar=",
+   basicstyle=\AltMacroFont,
+   keywordstyle=[0]\color{thegreen},
+   keywordstyle=[1]\color{thered},
+   comment=[l]\%,
+   commentstyle=\color{thegrey}\itshape,
+   alsoother={0123456789_},
+   frame=single,backgroundcolor=\color{theshade},rulecolor=\color{theframe},
+   framerule=\fboxrule,xleftmargin=3.4pt,xrightmargin=3.4pt,belowskip=\smallskipamount
+ }}{}
+
+\endinput
