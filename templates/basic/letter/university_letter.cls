@@ -7,8 +7,6 @@
 \ProvidesClass{university_letter}
 
 \RequirePackage{ifthen}
-\RequirePackage{fontspec}
-\RequirePackage{xunicode}
 
 \newboolean{@sign}
 
@@ -27,6 +25,11 @@
 %\RequirePackage{times}
 \RequirePackage{graphicx}
 \RequirePackage{url}
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+
+
+
 \def\myauthor{Kieran Healy}
 \def\mytitle{Vita}
 \def\mycopyright{\myauthor}
