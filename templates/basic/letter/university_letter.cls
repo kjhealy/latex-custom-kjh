@@ -37,7 +37,7 @@
 \def\mysubtitle{}
 \def\myaffiliation{Duke University}
 \def\myphone{\tiny\sffamily (919) 660-5737}
-\def\myfax{\tiny\sffamily (919) 660-5623}
+\def\myfax{}
 \def\myversion{}
 \def\myrevision{}
 
@@ -98,18 +98,18 @@
 \renewcommand{\ps@firstpage}{%
   \setlength{\headheight}{0cm}\setlength{\headsep}{3.5cm}%
   \renewcommand{\@oddhead}{\usebox{\tsheader}}
-  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Sociology/Psychology
+  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Reuben-Cooke
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone \,Fax: \myfax.}}%
-    \renewcommand{\@evenhead}{}\renewcommand{\@evenfoot}{{\sffamily\tiny 268 Sociology/Psychology
+      \myphone}}%
+    \renewcommand{\@evenhead}{}\renewcommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone \,Fax: \myfax.}}%
+      \myphone}}%
   }
 
 \providecommand{\@evenhead}{} \providecommand{\@oddhead}{}
-\providecommand{\@evenfoot}{{\sffamily\tiny 268 Sociology/Psychology
+\providecommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone \,Fax: \myfax.}} \providecommand{\@oddfoot}{}
+      \myphone} \providecommand{\@oddfoot}{}
 
 %\pagestyle{headings}
 
@@ -122,6 +122,6 @@
 	\raggedright \fromsig}}
 
 \signature{
-	Associate Professor of Sociology\\
-	\\\url{kjhealy@soc.duke.edu}}
+	Professor of Sociology\\
+	\\\url{kieran.healy@duke.edu}}
 	
