@@ -37,7 +37,7 @@
 \def\mysubtitle{}
 \def\myaffiliation{Duke University}
 \def\myphone{\tiny\sffamily (919) 660-5737}
-\def\myfax{}
+\def\myemail{\tiny\sffamily kieran.healy@duke.edu}
 \def\myversion{}
 \def\myrevision{}
 
@@ -98,18 +98,17 @@
 \renewcommand{\ps@firstpage}{%
   \setlength{\headheight}{0cm}\setlength{\headsep}{3.5cm}%
   \renewcommand{\@oddhead}{\usebox{\tsheader}}
-  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Reuben-Cooke
-      Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone}}%
+  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Reuben-Cooke Building, Duke University, Durham, North Carolina 27708, USA. Phone: \myphone \, Email: \myemail}}%
     \renewcommand{\@evenhead}{}\renewcommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone}}%
+      \myphone \, Email: \myemail}}%
   }
 
 \providecommand{\@evenhead}{} \providecommand{\@oddhead}{}
+
 \providecommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
       Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone} \providecommand{\@oddfoot}{}
+      \myphone \, Email: \myemail}} \providecommand{\@oddfoot}{}
 
 %\pagestyle{headings}
 
@@ -122,6 +121,5 @@
 	\raggedright \fromsig}}
 
 \signature{
-	Professor of Sociology\\
-	\\\url{kieran.healy@duke.edu}}
+	Professor of Sociology.}
 	
