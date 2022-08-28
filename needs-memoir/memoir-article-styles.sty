@@ -476,6 +476,73 @@
 
 
 %%% --------------------------------------------------
+%%% Style: severance
+%%% --------------------------------------------------
+%% Definitions
+\RequirePackage{color}
+ \definecolor{pagered}    {rgb} {0.65,0.04,0.07}
+ \definecolor{pagegreen}  {rgb} {0.06,0.44,0.08}
+ \definecolor{pageblue}   {rgb} {0.02,0.04,0.48}
+ \definecolor{pagesectioning}{gray}{0.6}
+ \definecolor{pagethegrey}   {gray}{0.5}
+ \definecolor{pageframe}  {gray}{0.75}
+ \definecolor{pageshade}  {gray}{0.94}
+
+% Make the style for Chapters and sections
+\makechapterstyle{severance}{
+  \renewcommand\thesection{\arabic{section}}
+  \setsecheadstyle{\Large\sffamily\bfseries\color{pageblue}}
+  \setsubsecheadstyle{\large\sffamily\fontseries{b}\color{pageblue}}
+  \setsubsubsecheadstyle{\normalsize\bfseries\color{pagered}}
+  \renewcommand{\printchaptername}{}
+  \renewcommand{\chapternamenum}{}
+  \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\printchapternum}{\chapnumfont \thechapter\space}
+  \renewcommand{\afterchapternum}{}
+  \renewcommand{\printchaptername}{\secheadstyle}
+  \renewcommand{\cftchapterfont}{\normalfont}
+  \renewcommand{\cftchapterpagefont}{\normalfont\sffamily}
+  \renewcommand{\cftchapterpresnum}{\sffamily}
+  % \renewcommand{\cftchapterleader}{}
+  % \renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+  \captiontitlefont{\small}
+  \settocdepth{chapter}
+  \maxsecnumdepth{chapter}
+  \setsecnumdepth{chapter}
+
+  % reduce skip after section heading
+  \setaftersecskip{1.7ex}
+
+  % set name of bibliography to 'references'
+  % \renewcommand{\bibname}{\mdseries\Large\sffamily\MakeLowercase References}
+
+  % Title
+  \pretitle{\par\vskip 3em
+    \begin{flushleft}\Huge\bfseries\sffamily\color{pageblue}}
+    \posttitle{\end{flushleft}\par\vskip 0.5em}
+  \preauthor{\begin{flushleft}\Large\color{pageblue}\bigskip}
+    \postauthor{\end{flushleft}}
+  \predate{\begin{flushleft}\normalsize\color{pageblue}}
+    \postdate{\end{flushleft}}
+
+  % \pretitle{\LARGE \sffamily}
+  % \posttitle{\par\vskip 0.5em}
+  % \preauthor{\large \sffamily \lineskip 1em}
+  % \postauthor{\par\lineskip 1em}
+  % \predate{\sffamily\footnotesize\vspace{0.65em}}
+  % \postdate{\par\vskip 2em}
+
+  % 'abstract' title, bigger skip from title
+  \addto\captionsamerican{\renewcommand{\abstractname}{Abstract:}}
+  \renewcommand{\abstractnamefont}{\normalfont\scriptsize}
+  \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+  \abstractrunin
+
+}
+
+
+
+%%% --------------------------------------------------
 %%% Style: membook
 %%% A book style
 %%% --------------------------------------------------
@@ -574,6 +641,9 @@
 %     \postdate{\end{flushleft}}
 
 % }
+
+
+
 
 
 %%% -------------------------------------------------- 
