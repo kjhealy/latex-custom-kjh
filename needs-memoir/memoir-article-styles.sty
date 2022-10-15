@@ -726,7 +726,86 @@
 \makeoddhead{kjh}{}{}{\scshape\thepage}
 
 
-  
+%%%
+%%% Basic + running head
+%%%
+\makepagestyle{kjhbook}
+%\makeevenfoot{kjhbook}{\thepage}{}{}
+%\makeoddfoot{kjhbook}{}{}{\thepage}
+%\makeheadrule{kjhbook}{\textwidth}{\normalrulethickness}
+\newcommand{\@kjhbookmarks}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhbook}{\@kjhbookmarks}
+\makeevenhead{kjhbook}{\scshape\thepage \  \footnotesize\scshape chapter \thechapter \ }{}{}
+\makeoddhead{kjhbook}{}{}{\footnotesize\itshape\rightmark\normalsize\ \ \scshape\thepage}
+
+\makepagestyle{kjhbookin}
+\newcommand{\@kjhbookmarksin}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhbookin}{\@kjhbookmarksin}
+\makeevenhead{kjhbookin}{\scshape\thepage \  \footnotesize\scshape introduction}{}{}
+\makeoddhead{kjhbookin}{}{}{\footnotesize\itshape\rightmark\normalsize\ \ \scshape\thepage}
+
+\makepagestyle{kjhbookout}
+\newcommand{\@kjhbookmarksout}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhbookout}{\@kjhbookmarksout}
+\makeevenhead{kjhbookout}{\scshape\thepage \ \footnotesize\scshape conclusion}{}{}
+\makeoddhead{kjhbookout}{}{}{\footnotesize\itshape\rightmark\normalsize\ \ \scshape\thepage}
+
+
+\makepagestyle{kjhbookbib}
+\newcommand{\@kjhbookmarksbib}{%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \thechapter. \ %
+        \fi
+      \fi
+      ##1}{}}
+  \def\sectionmark##1{%
+    \markright{##1}}
+}
+\makepsmarks{kjhbookbib}{\@kjhbookmarksbib}
+\makeevenhead{kjhbookbib}{\scshape\thepage \ \footnotesize references}{}{}
+\makeoddhead{kjhbookbib}{}{}{\footnotesize\itshape References \normalsize\ \ \scshape\thepage}
+
+
 %%%
 %%% RCS in footer 
 %%%
