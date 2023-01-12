@@ -154,4 +154,27 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
    framerule=\fboxrule,xleftmargin=3.4pt,xrightmargin=3.4pt,belowskip=\smallskipamount
  }}{}
 
+
+%\setlength{\cftsectionindent}{56pt}
+\makeatletter
+\newcommand*{\setupparasecs}{%
+   \let\oldnumberline\numberline
+   \renewcommand*{\cftsectionfont}{\itshape}
+   \renewcommand*{\cftsectionpagefont}{\upshape}
+   \renewcommand{\l@section}[2]{%
+     \def\numberline####1{\textit{####1}~~}%
+     \leftskip=\cftsectionindent
+     \rightskip=\@tocrmarg
+%%\advance\rightskip 0pt plus \hsize % uncomment this for raggedright
+\advance\rightskip 92pt plus \hsize    % uncomment this for semi-raggedright
+\parfillskip=\fill
+\ifhmode \,\,$ \cdot $ \else\noindent\fi
+%%\ifhmode \,\,\\ \else\noindent\fi
+\ignorespaces
+{\cftsectionfont ##1}~{\cftsectionpagefont##2}%
+     \let\numberline\oldnumberline\ignorespaces}
+ }
+\makeatother
+
+
 \endinput
