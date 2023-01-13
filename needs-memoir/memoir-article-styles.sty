@@ -416,7 +416,10 @@
 
 %% Make the style for Chapters and sections
 \makechapterstyle{minionbook}{
-  \setsecheadstyle{\Large\scshape\MakeLowercase}
+  % \phantomsection is needed because the case change
+  % will break toc labels otherwise. See https://groups.google.com/g/comp.text.tex/c/74OTqXBN60A
+  % and Memoir manual sec 9.2ff
+  \setsecheadstyle{\phantomsection\Large\scshape\MakeTextLowercase}
   \setsubsecheadstyle{\normalsize\itshape}
   \setaftersubsubsecskip{-1em}
   \setsubsubsecheadstyle{\small\bfseries}

@@ -96,9 +96,7 @@
   \def\bfdefault{b}
 }{}
 
-\RequirePackage[colorlinks=true, urlcolor=DarkSlateBlue, linkcolor=DarkSlateBlue, 
-citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
-pdfpagelabels, bookmarksnumbered]{hyperref}
+%% etoolbox
 \RequirePackage{etoolbox}
 
 %% Biblatex
@@ -155,3 +153,7 @@ pdfpagelabels, bookmarksnumbered]{hyperref}
  }}{}
 
 
+%% Hyperref. Always load hyperref last
+\RequirePackage[colorlinks=true, urlcolor=DarkSlateBlue, linkcolor=DarkSlateBlue,
+citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
+pdfpagelabels, bookmarksnumbered]{hyperref}
