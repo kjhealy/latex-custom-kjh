@@ -1,0 +1,54 @@
+%% Preamble/settings for quarto documents
+%%
+%% Usage: \usepackage{org-preamble-quarto} in your document
+%% preamble. Font choice should be set in the document after the
+%% package is declared. If \usepackage[minted]{org-preamble-xelatex}
+%% is given, the minted package for code highlighting is turned
+%% on. Minted requires that pygments be installed
+%% (http://pygments.org/) and that \write18 support be enabled in your
+%% tex compiler.
+
+%% Kieran Healy
+%%
+ 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{org-preamble-quarto}[2024/01/08 v0.01 Bundling of Preamble items for Quarto to XeLaTeX export]
+
+\RequirePackage{ifthen}
+\newboolean{@minted} %
+
+\setboolean{@minted}{false} % minted is off by default
+
+\DeclareOption{minted}{
+  \setboolean{@minted}{true}
+}
+
+\ProcessOptions
+
+
+\RequirePackage{fontspec}
+\RequirePackage{xunicode}
+\RequirePackage{url}
+\RequirePackage{rotating}
+\RequirePackage{memoir-article-styles}
+\RequirePackage[american]{babel}
+\RequirePackage[babel]{csquotes}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{soul}
+\RequirePackage[xetex, colorlinks=true, urlcolor=DarkSlateBlue,
+citecolor=DarkSlateBlue, filecolor=DarkSlateBlue, plainpages=false,
+pdfpagelabels, bookmarksnumbered]{hyperref}
+\RequirePackage{etoolbox}
+
+%% Pagestyle
+\pagestyle{kjh}
+
+%% If [minted] option is chosen, activate minted
+\ifthenelse{\boolean{@minted}}{
+  \RequirePackage{minted}
+  \usemintedstyle{tango} 
+  \definecolor{bg}{rgb}{0.95,0.95,0.95}
+  \setkeys{Gin}{width=1\@textwidth} 
+}{}
+
+\endinput
