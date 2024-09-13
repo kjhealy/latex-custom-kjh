@@ -196,12 +196,13 @@
   % \postauthor{\par\lineskip 1em}
   % \predate{\sffamily\footnotesize\vspace{0.65em}}
   % \postdate{\par\vskip 2em}
-  
-  % 'abstract' title, bigger skip from title
-  \addto\captionsamerican{\renewcommand{\abstractname}{Abstract:}}
-  \renewcommand{\abstractnamefont}{\normalfont\scriptsize\itshape}
-  \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+
+    % 'abstract' bigger skip from title
+  \addto\captionsamerican{\renewcommand{\abstractname}{}}
+  \renewcommand{\abstractname}{\normalfont\small\emph{Abstract:}}
+  \renewcommand{\abstracttextfont}{\normalfont\small}
   \abstractrunin
+
 
 }     
 
@@ -247,9 +248,16 @@
 
   % 'abstract' bigger skip from title
   \addto\captionsamerican{\renewcommand{\abstractname}{}}
-  \renewcommand{\abstractname}{}
-  \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+  \renewcommand{\abstractname}{\normalfont\small\emph{Abstract:}}
+  \renewcommand{\abstracttextfont}{\normalfont\small}
   \abstractrunin
+
+
+  % % 'abstract' bigger skip from title
+  % \addto\captionsamerican{\renewcommand{\abstractname}{}}
+  % \renewcommand{\abstractname}{}
+  % \renewcommand{\abstracttextfont}{\normalfont\scriptsize}
+  % \abstractrunin
 }
 
 
