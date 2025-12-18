@@ -1,7 +1,6 @@
 % Customized letter class:  university_letter.cls
 % changes the letter class by adding letterhead
-% option either "sign" (default) or "nosign"; the sign feature includes your signature
-% which must be in a file signature.jpg
+
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{university_letter}
@@ -10,7 +9,7 @@
 
 \newboolean{@sign}
 
-% Defaults:  signed 
+% Defaults:  signed
 \setboolean{@sign}{true}
 \DeclareOption{sign}{
 	\setboolean{@sign}{true}}
@@ -22,12 +21,14 @@
 \LoadClass{letter}
 
 
-%\RequirePackage{times}
+\RequirePackage{eso-pic}
 \RequirePackage{graphicx}
 \RequirePackage{url}
 \RequirePackage{fontspec}
-\RequirePackage{xunicode}
+\RequirePackage{csquotes}
+\MakeOuterQuote{"}
 
+\newsavebox{\tsheader}
 
 
 \def\myauthor{Kieran Healy}
@@ -41,17 +42,12 @@
 \def\myversion{}
 \def\myrevision{}
 
-\setlength{\topmargin}{-1.5cm}
-\newsavebox{\tsheader}
-\newsavebox{\universitylogo}
 
-\sbox{\universitylogo}{\parbox{\textwidth}{
-    \begin{tabular}{l}
-     \includegraphics[scale=0.55]{/Users/kjhealy/Documents/letterhead/logos/sociologydept.pdf}
-   \end{tabular}}}
-		
-\sbox{\tsheader}{\parbox[b]{\textwidth}{\usebox{\universitylogo}\raisebox{0cm}}}
-
+\AtBeginDocument{%
+  \AddToShipoutPictureBG*{%
+    \put(100,680){\includegraphics[scale=0.6]{/Users/kjhealy/Documents/letterhead/logos/sociologydept.pdf}}%
+  }%
+}
 
 \newcounter{figure}
 \renewcommand \thefigure {\@arabic\c@figure}
@@ -95,31 +91,27 @@
 \newcommand\figurename{Figure}
 \newcommand\tablename{Table}
 
+
 \renewcommand{\ps@firstpage}{%
   \setlength{\headheight}{0cm}\setlength{\headsep}{3.5cm}%
   \renewcommand{\@oddhead}{\usebox{\tsheader}}
-  \renewcommand{\@oddfoot}{{\sffamily\tiny 268 Reuben-Cooke Building, Duke University, Durham, North Carolina 27708, USA. Phone: \myphone \, Email: \myemail}}%
-    \renewcommand{\@evenhead}{}\renewcommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
-      Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone \, Email: \myemail}}%
-  }
+  \renewcommand{\@oddfoot}{\hfill{\sffamily\tiny 268 Reuben-Cooke Building, Duke University, Durham, North Carolina 27708, USA. Phone: \myphone \, Email: \myemail}\hfill}%
+  \renewcommand{\@evenhead}{}
+  \renewcommand{\@evenfoot}{\hfill{\sffamily\tiny 268 Reuben-Cooke Building, Duke University, Durham, North Carolina 27708, USA. Phone: \myphone \, Email: \myemail}\hfill}%
+}
 
-\providecommand{\@evenhead}{} \providecommand{\@oddhead}{}
-
-\providecommand{\@evenfoot}{{\sffamily\tiny 268 Reuben-Cooke
-      Building, Duke University, Durham, North Carolina 27708, USA. Phone:
-      \myphone \, Email: \myemail}} \providecommand{\@oddfoot}{}
-
-%\pagestyle{headings}
+\providecommand{\@evenhead}{}
+\providecommand{\@oddhead}{}
+\providecommand{\@evenfoot}{\hfill{\sffamily\tiny 268 Reuben-Cooke Building, Duke University, Durham, North Carolina 27708, USA. Phone: \myphone \, Email: \myemail}\hfill}
+\providecommand{\@oddfoot}{}
 
 
 \renewcommand{\closing}[1]{
 	\hspace*{4cm}
 	\parbox{\textwidth}{
 	\ifthenelse{\equal{#1}{}}{}{#1\\}
-	\ifthenelse{\boolean{@sign}}{}{\bigskip \bigskip \bigskip \bigskip \bigskip \ifthenelse{\equal{#1}{}}{}{{ }\\}}	
+	\ifthenelse{\boolean{@sign}}{}{\bigskip \bigskip \bigskip \bigskip \bigskip \ifthenelse{\equal{#1}{}}{}{{ }\\}}
 	\raggedright \fromsig}}
 
 \signature{
 	Professor of Sociology.}
-	
